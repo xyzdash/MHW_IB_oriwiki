@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ja" style="font-size: 10px;">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MHW:IB 弱点早見表</title>
+  </head>
+<!-- 【 CSS 】 ---------------------------------------------- -->
+<style type="text/css">
+    #sampleTable  th                {border : 1px solid #666;}
+    #sampleTable  td                {border : 1px solid #666;}
+    .allNoDisplay tr:not(.colTitle) {display: none;}
+    .fruit        tr[fruit]         {display: table-row;}
+    .vegetable    tr[vegetable]     {display: table-row;}
+    .meat         tr[meat]          {display: table-row;}
+    .獣竜種 tr[獣竜種]  {display: table-row;}
+    .古龍種 tr[古龍種]  {display: table-row;}
+    .飛竜種 tr[飛竜種]  {display: table-row;}
+    .鳥竜種 tr[鳥竜種]  {display: table-row;}
+    .魚竜種 tr[魚竜種]  {display: table-row;}
+    .遺存種 tr[遺存種]  {display: table-row;}
+    .牙竜種 tr[牙竜種]  {display: table-row;}
+    .牙獣種 tr[牙獣種]  {display: table-row;}
+    .草食種 tr[草食種]  {display: table-row;}
+    .獣人種 tr[獣人種]  {display: table-row;}
+    .甲虫種 tr[甲虫種]  {display: table-row;}
+    .翼竜種 tr[翼竜種]  {display: table-row;}
+    .無し   tr[無し]    {display: table-row;}
+    .アルバトリオン tr[アルバトリオン]  {display: table-row;}
+    .アン・イシュワルダ tr[アン・イシュワルダ]  {display: table-row;}
+    .アンジャナフ tr[アンジャナフ]  {display: table-row;}
+    .アンジャナフ亜種 tr[アンジャナフ亜種]  {display: table-row;}
+    .イヴェルカーナ tr[イヴェルカーナ]  {display: table-row;}
+    .イビルジョー tr[イビルジョー]  {display: table-row;}
+    .怒り喰らうイビルジョー tr[怒り喰らうイビルジョー]  {display: table-row;}
+    .イャンガルルガ tr[イャンガルルガ]  {display: table-row;}
+    .傷ついたイャンガルルガ tr[傷ついたイャンガルルガ]  {display: table-row;}
+    .ヴァルハザク tr[ヴァルハザク]  {display: table-row;}
+    .死を纏うヴァルハザク tr[死を纏うヴァルハザク]  {display: table-row;}
+    .ヴォルガノス tr[ヴォルガノス]  {display: table-row;}
+    .ウラガンキン tr[ウラガンキン]  {display: table-row;}
+    .オドガロン tr[オドガロン]  {display: table-row;}
+    .オドガロン亜種 tr[オドガロン亜種]  {display: table-row;}
+    .キリン tr[キリン]  {display: table-row;}
+    .クシャルダオラ tr[クシャルダオラ]  {display: table-row;}
+    .クルルヤック tr[クルルヤック]  {display: table-row;}
+    .ジュラトドス tr[ジュラトドス]  {display: table-row;}
+    .ジンオウガ tr[ジンオウガ]  {display: table-row;}
+    .ジンオウガ亜種 tr[ジンオウガ亜種]  {display: table-row;}
+    .ゼノ・ジーヴァ tr[ゼノ・ジーヴァ]  {display: table-row;}
+    .ゾラ・マグダラオス tr[ゾラ・マグダラオス]  {display: table-row;}
+    .ツィツィヤック tr[ツィツィヤック]  {display: table-row;}
+    .ディアブロス tr[ディアブロス]  {display: table-row;}
+    .ディアブロス亜種 tr[ディアブロス亜種]  {display: table-row;}
+    .ティガレックス tr[ティガレックス]  {display: table-row;}
+    .ティガレックス亜種 tr[ティガレックス亜種]  {display: table-row;}
+    .ディノバルド tr[ディノバルド]  {display: table-row;}
+    .ディノバルド亜種 tr[ディノバルド亜種]  {display: table-row;}
+    .テオ・テスカトル tr[テオ・テスカトル]  {display: table-row;}
+    .ドスギルオス tr[ドスギルオス]  {display: table-row;}
+    .ドスジャグラス tr[ドスジャグラス]  {display: table-row;}
+    .ドドガマル tr[ドドガマル]  {display: table-row;}
+    .トビカガチ tr[トビカガチ]  {display: table-row;}
+    .トビカガチ亜種 tr[トビカガチ亜種]  {display: table-row;}
+    .ナナ・テスカトリ tr[ナナ・テスカトリ]  {display: table-row;}
+    .ナルガクルガ tr[ナルガクルガ]  {display: table-row;}
+    .ネルギガンテ tr[ネルギガンテ]  {display: table-row;}
+    .悉くを殲ぼすネルギガンテ tr[悉くを殲ぼすネルギガンテ]  {display: table-row;}
+    .ネロミェール tr[ネロミェール]  {display: table-row;}
+    .パオウルムー tr[パオウルムー]  {display: table-row;}
+    .パオウルムー亜種 tr[パオウルムー亜種]  {display: table-row;}
+    .バゼルギウス tr[バゼルギウス]  {display: table-row;}
+    .紅蓮滾るバゼルギウス tr[紅蓮滾るバゼルギウス]  {display: table-row;}
+    .バフバロ tr[バフバロ]  {display: table-row;}
+    .プケプケ tr[プケプケ]  {display: table-row;}
+    .プケプケ亜種 tr[プケプケ亜種]  {display: table-row;}
+    .ブラキディオス tr[ブラキディオス]  {display: table-row;}
+    .猛り爆ぜるブラキディオス tr[猛り爆ぜるブラキディオス]  {display: table-row;}
+    .ブラントドス tr[ブラントドス]  {display: table-row;}
+    .ベヒーモス tr[ベヒーモス]  {display: table-row;}
+    .ベリオロス tr[ベリオロス]  {display: table-row;}
+    .氷刃佩くベリオロス tr[氷刃佩くベリオロス]  {display: table-row;}
+    .ボルボロス tr[ボルボロス]  {display: table-row;}
+    .マム・タロト tr[マム・タロト]  {display: table-row;}
+    .ミラボレアス tr[ミラボレアス]  {display: table-row;}
+    .ムフェト・ジーヴァ tr[ムフェト・ジーヴァ]  {display: table-row;}
+    .ラージャン tr[ラージャン]  {display: table-row;}
+    .激昂したラージャン tr[激昂したラージャン]  {display: table-row;}
+    .ラドバルキン tr[ラドバルキン]  {display: table-row;}
+    .リオレイア tr[リオレイア]  {display: table-row;}
+    .リオレイア亜種 tr[リオレイア亜種]  {display: table-row;}
+    .リオレイア希少種 tr[リオレイア希少種]  {display: table-row;}
+    .リオレウス tr[リオレウス]  {display: table-row;}
+    .リオレウス亜種 tr[リオレウス亜種]  {display: table-row;}
+    .リオレウス希少種 tr[リオレウス希少種]  {display: table-row;}
+    .レイギエナ tr[レイギエナ]  {display: table-row;}
+    .凍て刺すレイギエナ tr[凍て刺すレイギエナ]  {display: table-row;}
+    .レーシェン tr[レーシェン]  {display: table-row;}
+    .エンシェント・レーシェン tr[エンシェント・レーシェン]  {display: table-row;}
+    .アプケロス tr[アプケロス]  {display: table-row;}
+    .アプトノス tr[アプトノス]  {display: table-row;}
+    .ウルグ tr[ウルグ]  {display: table-row;}
+    .ガウシカ tr[ガウシカ]  {display: table-row;}
+    .ガジャブー tr[ガジャブー]  {display: table-row;}
+    .ガストドン tr[ガストドン]  {display: table-row;}
+    .ガライーバ tr[ガライーバ]  {display: table-row;}
+    .カンタロス tr[カンタロス]  {display: table-row;}
+    .ギルオス tr[ギルオス]  {display: table-row;}
+    .ケストドン tr[ケストドン]  {display: table-row;}
+    .ケルビ tr[ケルビ]  {display: table-row;}
+    .コルトス tr[コルトス]  {display: table-row;}
+    .ジャグラス tr[ジャグラス]  {display: table-row;}
+    .シャムオス tr[シャムオス]  {display: table-row;}
+    .ノイオス tr[ノイオス]  {display: table-row;}
+    .バルノス tr[バルノス]  {display: table-row;}
+    .ポポ tr[ポポ]  {display: table-row;}
+    .ボワボワ tr[ボワボワ]  {display: table-row;}
+    .メルノス tr[メルノス]  {display: table-row;}
+    .モス tr[モス]  {display: table-row;}
+    .ラフィノス tr[ラフィノス]  {display: table-row;}
+    .ランゴスタ tr[ランゴスタ]  {display: table-row;}
+    .小タル tr[小タル]  {display: table-row;}
+    .中タル tr[中タル]  {display: table-row;}
+    .黒タル tr[黒タル]  {display: table-row;}
+    .柱 tr[柱]  {display: table-row;}
+  </style>
+  
+<!-- 【 JavaScript 】 -------------------------------------- -->
+  <script type="text/javascript">
+  function Filter(str){
+    var wTable = document.getElementById("sampleTable");
+    var wSelect = document.getElementById("test1");
+    var value = wSelect.value;
+    if(str == 'clear'){
+      wTable.className = '';
+    }
+    else if(value == ''){
+      wTable.className = '';
+    }else{
+      wTable.className = 'allNoDisplay ' + value;
+    }
+  }
+  </script>
+
+  <script>
+    window.onload=function(){
+    //オートコンプリートに設定する値
+    var arr = [
+    {value:"無し"},
+    {value:"獣竜種"},{value:"古龍種"},{value:"飛竜種"},
+    {value:"鳥竜種"},{value:"魚竜種"},{value:"遺存種"},
+    {value:"牙竜種"},{value:"牙獣種"},{value:"草食種"},
+    {value:"獣人種"},{value:"甲虫種"},{value:"翼竜種"},
+    {value:"アルバトリオン"},{value:"アン・イシュワルダ"},{value:"アンジャナフ"},
+    {value:"アンジャナフ亜種"},{value:"イヴェルカーナ"},{value:"イビルジョー"},
+    {value:"怒り喰らうイビルジョー"},{value:"イャンガルルガ"},{value:"傷ついたイャンガルルガ"},
+    {value:"ヴァルハザク"},{value:"死を纏うヴァルハザク"},{value:"ヴォルガノス"},
+    {value:"ウラガンキン"},{value:"エンシェント・レーシェン"},{value:"オドガロン"},
+    {value:"オドガロン亜種"},{value:"キリン"},{value:"クシャルダオラ"},
+    {value:"クルルヤック"},{value:"ジュラトドス"},{value:"ジンオウガ"},
+    {value:"ジンオウガ亜種"},{value:"ゼノ・ジーヴァ"},{value:"ゾラ・マグダラオス"},
+    {value:"ツィツィヤック"},{value:"ディアブロス"},{value:"ディアブロス亜種"},
+    {value:"ティガレックス"},{value:"ティガレックス亜種"},{value:"ディノバルド"},
+    {value:"ディノバルド亜種"},{value:"テオ・テスカトル"},{value:"ドスギルオス"},
+    {value:"ドスジャグラス"},{value:"ドドガマル"},{value:"トビカガチ"},
+    {value:"トビカガチ亜種"},{value:"ナナ・テスカトリ"},{value:"ナルガクルガ"},
+    {value:"ネルギガンテ"},{value:"悉くを殲ぼすネルギガンテ"},{value:"ネロミェール"},
+    {value:"パオウルムー"},{value:"パオウルムー亜種"},{value:"バゼルギウス"},
+    {value:"紅蓮滾るバゼルギウス"},{value:"バフバロ"},{value:"プケプケ"},
+    {value:"プケプケ亜種"},{value:"ブラキディオス"},{value:"猛り爆ぜるブラキディオス"},
+    {value:"ブラントドス"},{value:"ベヒーモス"},{value:"ベリオロス"},
+    {value:"氷刃佩くベリオロス"},{value:"ボルボロス"},{value:"マム・タロト"},
+    {value:"ミラボレアス"},{value:"ムフェト・ジーヴァ"},{value:"ラージャン"},
+    {value:"激昂したラージャン"},{value:"ラドバルキン"},{value:"リオレイア"},
+    {value:"リオレイア亜種"},{value:"リオレイア希少種"},{value:"リオレウス"},
+    {value:"リオレウス亜種"},{value:"リオレウス希少種"},{value:"レイギエナ"},
+    {value:"凍て刺すレイギエナ"},{value:"レーシェン"},{value:"アプケロス"},
+    {value:"アプトノス"},{value:"ウルグ"},{value:"ガウシカ"},
+    {value:"ガジャブー"},{value:"ガストドン"},{value:"ガライーバ"},
+    {value:"カンタロス"},{value:"ギルオス"},{value:"ケストドン"},
+    {value:"ケルビ"},{value:"コルトス"},
+    {value:"ジャグラス"},{value:"シャムオス"},{value:"ノイオス"},
+    {value:"バルノス"},{value:"ポポ"},{value:"ボワボワ"},
+    {value:"メルノス"},{value:"モス"},{value:"ラフィノス"},
+    {value:"ランゴスタ"},{value:"小タル"},{value:"中タル"},
+    {value:"黒タル"},{value:"柱"}
+    ];
+
+    //オートコンプリート値を設定する
+    for(var i=0;i<arr.length;i++){
+      let op = document.createElement("option");
+      op.value = arr[i].value;
+      document.getElementById("dt1").appendChild(op);
+    }
+  }
+  </script>
+  
+<!-- 【 HTML 】 ------------------------------------------- -->
+  <body>
+    <p style="font-size:150%">
+      <a href="./nikusitu.html" target="_blank" style="color:blue;">詳しい肉質が知りたい方はこちら(整備中)</a>
+    </p>
+    <form action="#">
+      <p style="font-size:150%">設定 
+        <input style="width: 14em;" id="test1" type="text" autocomplete="on" list="dt1" onchange="Filter();">
+        <datalist id="dt1"></datalist>
+        <input type="reset" value="リセット" onclick="Filter('clear');">
+        <br>
+      </p>
+  
+  <table border="1" style="width:100%; font-size:130%;" id="sampleTable" >
+    <tr class="colTitle">
+      <th style="width:52%">モンスター名</th><th style="width:24%">弱点</th><th style="width:24%">無効</th>
+      <tr 古龍種 アルバトリオン><td>アルバトリオン<br>(炎活性)</td><td>氷/水</td><td>火</td></tr>
+      <tr 古龍種 アルバトリオン><td>アルバトリオン<br>(氷活性)</td><td>火/雷</td><td>氷</td></tr>
+      <tr 古龍種 アルバトリオン><td>アルバトリオン<br>(龍活性)</td><td>　/龍</td><td>ー</td></tr>
+      <tr 古龍種 アン・イシュワルダ><td>アン・イシュワルダ</td><td>氷/水</td><td>雷</td></tr>
+      <tr 獣竜種 アンジャナフ><td>アンジャナフ</td><td>水/氷</td><td>火</td></tr>
+      <tr 獣竜種 アンジャナフ亜種><td>アンジャナフ亜種</td><td>氷/火水</td><td>雷</td></tr>
+      <tr 獣竜種 アンジャナフ亜種><td>アンジャナフ亜種<br>(帯電)</td><td>水/火氷</td><td>雷</td></tr>
+      <tr 古龍種 イヴェルカーナ><td>イヴェルカーナ</td><td>火/雷龍</td><td>氷</td></tr>
+      <tr 獣竜種 イビルジョー><td>イビルジョー</td><td>雷龍/火水</td><td>氷</td></tr>
+      <tr 獣竜種 イビルジョー><td>イビルジョー<br>(怒り時)</td><td>雷龍/火水</td><td>ー</td></tr>
+      <tr 獣竜種 怒り喰らうイビルジョー><td>怒り喰らうイビルジョー</td><td>雷龍/火水</td><td>ー</td></tr>
+      <tr 鳥竜種 イャンガルルガ><td>イャンガルルガ</td><td>水/氷</td><td>火</td></tr>
+      <tr 鳥竜種 傷ついたイャンガルルガ><td>傷ついたイャンガルルガ</td><td>水/龍</td><td>火</td></tr>
+      <tr 古龍種 ヴァルハザク><td>ヴァルハザク</td><td>火/氷</td><td>水</td></tr>
+      <tr 古龍種 ヴァルハザク><td>ヴァルハザク<br>(特定部位破壊後)</td><td>火/氷龍</td><td>水</td></tr>
+      <tr 古龍種 死を纏うヴァルハザク><td>死を纏うヴァルハザク</td><td>火/氷龍</td><td>水</td></tr>
+      <tr 古龍種 死を纏うヴァルハザク><td>死を纏うヴァルハザク<br>(特定部位破壊後)</td><td>火龍/氷</td><td>水</td></tr>
+      <tr 魚竜種 ヴォルガノス><td>ヴォルガノス<br>(硬化時)</td><td>火/水</td><td>雷氷</td></tr>
+      <tr 魚竜種 ヴォルガノス><td>ヴォルガノス<br>(赤熱時)</td><td>水/雷氷</td><td>火</td></tr>
+      <tr 獣竜種 ウラガンキン><td>ウラガンキン</td><td>水/龍</td><td>火雷</td></tr>
+      <tr 牙竜種 オドガロン><td>オドガロン</td><td>氷/雷</td><td>龍</td></tr>
+      <tr 牙竜種 オドガロン亜種><td>オドガロン亜種</td><td>水/火雷氷</td><td>龍</td></tr>
+      <tr 牙竜種 オドガロン亜種><td>オドガロン亜種<br>(特定部位破壊後)</td><td>　/水</td><td>龍</td></tr>
+      <tr 古龍種 キリン><td>キリン</td><td>火/水氷</td><td>雷</td></tr>
+      <tr 古龍種 クシャルダオラ><td>クシャルダオラ</td><td>雷/火龍</td><td>氷</td></tr>
+      <tr 鳥竜種 クルルヤック><td>クルルヤック</td><td>水/火雷氷龍</td><td>ー</td></tr>
+      <tr 魚竜種 ジュラトドス><td>ジュラトドス</td><td>雷/火</td><td>水</td></tr>
+      <tr 魚竜種 ジュラトドス><td>ジュラトドス<br>(泥纏い)</td><td>水/雷</td><td>ー</td></tr>
+      <tr 牙竜種 ジンオウガ><td>ジンオウガ</td><td>氷/水</td><td>雷</td></tr>
+      <tr 牙竜種 ジンオウガ亜種><td>ジンオウガ亜種</td><td>ー</td><td>火水氷龍</td></tr>
+      <tr 牙竜種 ジンオウガ亜種><td>ジンオウガ亜種<br>(龍光時)</td><td>雷/水</td><td>龍</td></tr>
+      <tr 古龍種 ゼノ・ジーヴァ><td>ゼノ・ジーヴァ</td><td>火龍</td><td>ー</td></tr>
+      <tr 古龍種 ゼノ・ジーヴァ><td>ゼノ・ジーヴァ<br>(臨界時)</td><td>水雷氷/火龍</td><td>ー</td></tr>
+      <tr 古龍種 ゾラ・マグダラオス><td>ゾラ・マグダラオス</td><td>水龍/氷</td><td>火</td></tr>
+      <tr 鳥竜種 ツィツィヤック><td>ツィツィヤック</td><td>雷氷/火水龍</td><td>ー</td></tr>
+      <tr 飛竜種 ディアブロス><td>ディアブロス</td><td>氷/水龍</td><td>火</td></tr>
+      <tr 飛竜種 ディアブロス亜種><td>ディアブロス亜種</td><td>氷/水</td><td>火龍</td></tr>
+      <tr 飛竜種 ティガレックス><td>ティガレックス</td><td>雷/龍</td><td>火</td></tr>
+      <tr 飛竜種 ティガレックス亜種><td>ティガレックス亜種</td><td>水/雷龍</td><td>火</td></tr>
+      <tr 獣竜種 ディノバルド><td>ディノバルド</td><td>水/氷龍</td><td>火</td></tr>
+      <tr 獣竜種 ディノバルド亜種><td>ディノバルド亜種</td><td>火/雷龍</td><td>ー</td></tr>
+      <tr 古龍種 テオ・テスカトル><td>テオ・テスカトル</td><td>水/氷</td><td>火</td></tr>
+      <tr 牙竜種 ドスギルオス><td>ドスギルオス</td><td>水/氷</td><td>雷</td></tr>
+      <tr 牙竜種 ドスジャグラス><td>ドスジャグラス</td><td>火/雷</td><td>水</td></tr>
+      <tr 牙竜種 ドドガマル><td>ドドガマル</td><td>雷/水氷</td><td>火</td></tr>
+      <tr 牙竜種 トビカガチ><td>トビカガチ</td><td>水/火氷</td><td>雷</td></tr>
+      <tr 牙竜種 トビカガチ亜種><td>トビカガチ亜種</td><td>雷/氷</td><td>水</td></tr>
+      <tr 古龍種 ナナ・テスカトリ><td>ナナ・テスカトリ</td><td>氷/龍</td><td>火</td></tr>
+      <tr 飛竜種 ナルガクルガ><td>ナルガクルガ</td><td>雷/火</td><td>水</td></tr>
+      <tr 古龍種 ネルギガンテ><td>ネルギガンテ</td><td>雷/龍</td><td>ー</td></tr>
+      <tr 古龍種 悉くを殲ぼすネルギガンテ><td>悉くを殲ぼすネルギガンテ</td><td>龍/雷</td><td>ー</td></tr>
+      <tr 古龍種 ネロミェール><td>ネロミェール</td><td>　/火龍</td><td>水雷</td></tr>
+      <tr 古龍種 ネロミェール><td>ネロミェール<br>(水纏い時)</td><td>火/氷龍</td><td>水雷</td></tr>
+      <tr 飛竜種 パオウルムー><td>パオウルムー</td><td>火/雷</td><td>水</td></tr>
+      <tr 飛竜種 パオウルムー亜種><td>パオウルムー亜種</td><td>水/火</td><td>龍</td></tr>
+      <tr 飛竜種 バゼルギウス><td>バゼルギウス</td><td>雷/氷龍</td><td>火</td></tr>
+      <tr 飛竜種 紅蓮滾るバゼルギウス><td>紅蓮滾るバゼルギウス</td><td>氷/雷</td><td>火</td></tr>
+      <tr 獣竜種 バフバロ><td>バフバロ</td><td>龍/火</td><td>水氷</td></tr>
+      <tr 鳥竜種 プケプケ><td>プケプケ</td><td>雷/氷</td><td>水</td></tr>
+      <tr 鳥竜種 プケプケ亜種><td>プケプケ亜種</td><td>氷/雷</td><td>水</td></tr>
+      <tr 獣竜種 ブラキディオス><td>ブラキディオス</td><td>氷/水</td><td>火</td></tr>
+      <tr 獣竜種 猛り爆ぜるブラキディオス><td>猛り爆ぜるブラキディオス</td><td>氷/水</td><td>火</td></tr>
+      <tr 魚竜種 ブラントドス><td>ブラントドス</td><td>火/雷</td><td>氷龍</td></tr>
+      <tr 魚竜種 ブラントドス><td>ブラントドス<br>(雪纏い時)</td><td>火</td><td>氷龍</td></tr>
+      <tr 古龍種 ベヒーモス><td>ベヒーモス</td><td>龍/水氷</td><td>ー</td></tr>
+      <tr 飛竜種 ベリオロス><td>ベリオロス</td><td>火/雷</td><td>氷</td></tr>
+      <tr 飛竜種 氷刃佩くベリオロス><td>氷刃佩くベリオロス</td><td>火/雷</td><td>氷</td></tr>
+      <tr 獣竜種 ボルボロス><td>ボルボロス</td><td>火/氷</td><td>水雷</td></tr>
+      <tr 獣竜種 ボルボロス><td>ボルボロス<br>(泥纏い時)</td><td>水/氷</td><td>火/雷</td></tr>
+      <tr 古龍種 マム・タロト><td>マム・タロト</td><td>雷/水</td><td>氷</td></tr>
+      <tr 古龍種 マム・タロト><td>マム・タロト<br>(解放後)</td><td>氷/水</td><td>火雷</td></tr>
+      <tr 古龍種 ミラボレアス><td>ミラボレアス</td><td>龍/火</td><td>水雷</td></tr>
+      <tr 古龍種 ムフェト・ジーヴァ><td>ムフェト・ジーヴァ</td><td>　/火水雷氷龍</td><td>ー</td></tr>
+      <tr 牙獣種 ラージャン><td>ラージャン</td><td>氷</td><td>火雷龍</td></tr>
+      <tr 牙獣種 激昂したラージャン><td>激昂したラージャン</td><td>氷</td><td>火雷龍</td></tr>
+      <tr 獣竜種 ラドバルキン><td>ラドバルキン</td><td>龍/氷</td><td>ー</td></tr>
+      <tr 飛竜種 リオレイア><td>リオレイア</td><td>龍/雷</td><td>火</td></tr>
+      <tr 飛竜種 リオレイア亜種><td>リオレイア亜種</td><td>龍/雷</td><td>火</td></tr>
+      <tr 飛竜種 リオレイア希少種><td>リオレイア希少種</td><td>雷/水</td><td>火龍</td></tr>
+      <tr 飛竜種 リオレウス><td>リオレウス</td><td>龍/雷</td><td>火</td></tr>
+      <tr 飛竜種 リオレウス亜種><td>リオレウス亜種</td><td>龍/氷</td><td>火</td></tr>
+      <tr 飛竜種 リオレウス希少種><td>リオレウス希少種</td><td>水/雷</td><td>火龍</td></tr>
+      <tr 飛竜種 レイギエナ><td>レイギエナ</td><td>雷/火</td><td>氷</td></tr>
+      <tr 飛竜種 凍て刺すレイギエナ><td>凍て刺すレイギエナ</td><td>火/雷</td><td>氷</td></tr>
+      <tr 遺存種 レーシェン><td>レーシェン</td><td>火/雷龍</td><td>水</td></tr>
+      <tr 遺存種 エンシェント・レーシェン><td>エンシェント・レーシェン</td><td>火/雷龍</td><td>水</td></tr>
+      <tr 草食種 アプケロス><td>アプケロス</td><td></td><td></td></tr>
+      <tr 草食種 アプトノス><td>アプトノス</td><td></td><td></td></tr>
+      <tr 牙竜種 ウルグ><td>ウルグ</td><td></td><td></td></tr>
+      <tr 草食種 ガウシカ><td>ガウシカ</td><td></td><td></td></tr>
+      <tr 獣人種 ガジャブー><td>ガジャブー</td><td></td><td></td></tr>
+      <tr 草食種 ガストドン><td>ガストドン</td><td></td><td></td></tr>
+      <tr 魚竜種 ガライーバ><td>ガライーバ</td><td></td><td></td></tr>
+      <tr 甲虫種 カンタロス><td>カンタロス</td><td></td><td></td></tr>
+      <tr 牙竜種 ギルオス><td>ギルオス</td><td></td><td></td></tr>
+      <tr 草食種 ケストドン><td>ケストドン</td><td></td><td></td></tr>
+      <tr 草食種 ケルビ><td>ケルビ</td><td></td><td></td></tr>
+      <tr 翼竜種 コルトス><td>コルトス</td><td></td><td></td></tr>
+      <tr 牙竜種 ジャグラス><td>ジャグラス</td><td></td><td></td></tr>
+      <tr 牙竜種 シャムオス><td>シャムオス</td><td></td><td></td></tr>
+      <tr 翼竜種 ノイオス><td>ノイオス</td><td></td><td></td></tr>
+      <tr 翼竜種 バルノス><td>バルノス</td><td></td><td></td></tr>
+      <tr 草食種 ポポ><td>ポポ</td><td></td><td></td></tr>
+      <tr 獣人種 ボワボワ><td>ボワボワ</td><td></td><td></td></tr>
+      <tr 翼竜種 メルノス><td>メルノス</td><td></td><td></td></tr>
+      <tr 草食種 モス><td>モス</td><td></td><td></td></tr>
+      <tr 翼竜種 ラフィノス><td>ラフィノス</td><td></td><td></td></tr>
+      <tr 甲虫種 ランゴスタ><td>ランゴスタ</td><td></td><td></td></tr>
+      <tr 無し 小タル><td>小タル</td><td></td><td></td></tr>
+      <tr 無し 中タル><td>中タル</td><td></td><td></td></tr>
+      <tr 無し 黒タル><td>黒タル</td><td></td><td></td></tr>
+      <tr 無し 柱><td>柱</td><td></td><td></td></tr>
+  </table>
+</form>
+  </body>
+  </html>
