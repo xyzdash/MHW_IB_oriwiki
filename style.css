@@ -1,4 +1,4 @@
 span.del{
   text-decoration-line: line-through;
-  text-decoration-line: red;
+  text-decoration-color: red;
 }
