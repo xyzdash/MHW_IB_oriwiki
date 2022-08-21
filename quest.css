@@ -1,0 +1,6 @@
+#sampleTable  th                {border : 1px solid #666;}
+#sampleTable  td                {border : 1px solid #666;}
+.hide {display: none;}
+td.mon{display: none;}
+td.zok{display: none;}
+td.jou{display: none;}
