@@ -1,11 +1,785 @@
 <!DOCTYPE html>
-<html lang="ja" style="font-size: 10px;">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MHW:IB クエスト情報</title>
-  </head>
-  <body>
-    <h1>整備中</h1>
-  </body>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="./quest.css">
+        <title>MHW:IB クエスト表</title>
+    </head>
+
+    <!-- quest.cssの読み込み-->
+    <style type="text/css"></style>
+
+    <!-- javascriptの読み込み -->
+    <script type="text/javascript" src="./quest_filter.js"></script>
+    <script src="./quest_filter.js"></script>
+
+    <body class="nc" style="font-size: 100%;">
+        <div>
+            <table border="1" style="border-collapse: collapse" width="100%">
+            <tr><th colspan="2">ランク</th></tr>
+                <tr>
+                    <td>
+                        下位
+                    </td>
+                    <td>
+                        <input type="checkbox" value="★1" class="rank">★1　
+                        <input type="checkbox" value="★2" class="rank">★2　
+                        <input type="checkbox" value="★3" class="rank">★3　
+                        <input type="checkbox" value="★4" class="rank">★4　<br>
+                        <input type="checkbox" value="★5" class="rank">★5　
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        上位
+                    </td>
+                    <td>
+                        <input type="checkbox" value="★6" class="rank">★6　
+                        <input type="checkbox" value="★7" class="rank">★7　
+                        <input type="checkbox" value="★8" class="rank">★8　
+                        <input type="checkbox" value="★9" class="rank">★9　
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        マスター
+                    </td>
+                    <td>
+                        <input type="checkbox" value="★M1" class="rank">★M1　
+                        <input type="checkbox" value="★M2" class="rank">★M2　
+                        <input type="checkbox" value="★M3" class="rank">★M3　<br>
+                        <input type="checkbox" value="★M4" class="rank">★M4　
+                        <input type="checkbox" value="★M5" class="rank">★M5　
+                        <input type="checkbox" value="★M6" class="rank">★M6　
+                    </td>
+                </tr>
+            </table>
+        </div><br>
+
+        <div>
+            <table border="1" style="border-collapse: collapse" width="100%">
+            <tr><th>種別</th></tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" value="任務" class="bet">任務　
+                        <input type="checkbox" value="フリー" class="bet">フリー　
+                        <input type="checkbox" value="イベント" class="bet">イベント　<br>
+                        <input type="checkbox" value="闘技大会" class="bet">闘技大会　
+                        <input type="checkbox" value="チャレンジ" class="bet">チャレンジ　
+                        <input type="checkbox" value="特別・偵察" class="bet">特別・偵察　
+                    </td>
+                </tr>
+            </table>
+        </div><br>
+
+        <div>
+            <table border="1" style="border-collapse: collapse" width="100%">
+            <tr><th>目的地</th></tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" value="古代樹の森" class="loc">古代樹の森　
+                        <input type="checkbox" value="闘技場" class="loc">闘技場　
+                        <input type="checkbox" value="大蟻塚の荒地" class="loc">大蟻塚の荒地　
+                        <input type="checkbox" value="特殊闘技場" class="loc">特殊闘技場　
+                        <input type="checkbox" value="大峡谷" class="loc">大峡谷　
+                        <input type="checkbox" value="陸珊瑚の台地" class="loc">陸珊瑚の台地　
+                        <input type="checkbox" value="瘴気の谷" class="loc">瘴気の谷　
+                        <input type="checkbox" value="地脈回廊" class="loc">地脈回廊　
+                        <input type="checkbox" value="龍結晶の地" class="loc">龍結晶の地　
+                        <input type="checkbox" value="地脈の収束地" class="loc">地脈の収束地　
+                        <input type="checkbox" value="地脈の黄金郷" class="loc">地脈の黄金郷　<br>
+                        <input type="checkbox" value="渡りの凍て地" class="loc">渡りの凍て地　
+                        <input type="checkbox" value="兵器置き場" class="loc">兵器置き場　<br>
+                        <input type="checkbox" value="淵源の孤島" class="loc">淵源の孤島　
+                        <input type="checkbox" value="導きの地" class="loc">導きの地　
+                        <input type="checkbox" value="幽境の谷" class="loc">幽境の谷　
+                        <input type="checkbox" value="シュレイド城" class="loc">シュレイド城　
+                    </td>
+                </tr>
+            </table>
+        </div><br>
+
+        <div>
+            <table border="1" style="border-collapse: collapse" width="100%">
+            <tr><th>種類</th></tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" value="討伐" class="rui">討伐　
+                        <input type="checkbox" value="納品" class="rui">納品　
+                        <input type="checkbox" value="闘技" class="rui">闘技　
+                        <input type="checkbox" value="狩猟" class="rui">狩猟　<br>
+                        <input type="checkbox" value="捕獲" class="rui">捕獲　
+                        <input type="checkbox" value="チャレンジ" class="rui">チャレンジ　
+                        <input type="checkbox" value="特殊" class="rui">特殊　
+                    </td>
+                </tr>
+            </table>
+        </div><br>
+
+        <div>
+            <table border="1" style="border-collapse: collapse" width="100%">
+            <tr><th>モンスター</th></tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" value="アルバトリオン" class="mon">アルバトリオン<br>
+                        <input type="checkbox" value="アン・イシュワルダ" class="mon">アン・イシュワルダ<br>
+                        <input type="checkbox" value="アンジャナフ" class="mon">アンジャナフ<br>
+                        <input type="checkbox" value="アンジャナフ亜種" class="mon">アンジャナフ亜種<br>
+                        <input type="checkbox" value="イヴェルカーナ" class="mon">イヴェルカーナ<br>
+                        <input type="checkbox" value="イビルジョー" class="mon">イビルジョー<br>
+                        <input type="checkbox" value="怒り喰らうイビルジョー" class="mon">怒り喰らうイビルジョー<br>
+                        <input type="checkbox" value="イャンガルルガ" class="mon">イャンガルルガ<br>
+                        <input type="checkbox" value="傷ついたイャンガルルガ" class="mon">傷ついたイャンガルルガ<br>
+                        <input type="checkbox" value="ヴァルハザク" class="mon">ヴァルハザク<br>
+                        <input type="checkbox" value="死を纏うヴァルハザク" class="mon">死を纏うヴァルハザク<br>
+                        <input type="checkbox" value="ヴォルガノス" class="mon">ヴォルガノス<br>
+                        <input type="checkbox" value="ウラガンキン" class="mon">ウラガンキン<br>
+                        <input type="checkbox" value="オドガロン" class="mon">オドガロン<br>
+                        <input type="checkbox" value="オドガロン亜種" class="mon">オドガロン亜種<br>
+                        <input type="checkbox" value="キリン" class="mon">キリン<br>
+                        <input type="checkbox" value="クシャルダオラ" class="mon">クシャルダオラ<br>
+                        <input type="checkbox" value="クルルヤック" class="mon">クルルヤック<br>
+                        <input type="checkbox" value="ジュラトドス" class="mon">ジュラトドス<br>
+                        <input type="checkbox" value="ジンオウガ" class="mon">ジンオウガ<br>
+                        <input type="checkbox" value="ジンオウガ亜種" class="mon">ジンオウガ亜種<br>
+                        <input type="checkbox" value="ゼノ・ジーヴァ" class="mon">ゼノ・ジーヴァ<br>
+                        <input type="checkbox" value="ゾラ・マグダラオス" class="mon">ゾラ・マグダラオス<br>
+                        <input type="checkbox" value="ツィツィヤック" class="mon">ツィツィヤック<br>
+                        <input type="checkbox" value="ディアブロス" class="mon">ディアブロス<br>
+                        <input type="checkbox" value="ディアブロス亜種" class="mon">ディアブロス亜種<br>
+                        <input type="checkbox" value="ティガレックス" class="mon">ティガレックス<br>
+                        <input type="checkbox" value="ティガレックス亜種" class="mon">ティガレックス亜種<br>
+                        <input type="checkbox" value="ディノバルド" class="mon">ディノバルド<br>
+                        <input type="checkbox" value="ディノバルド亜種" class="mon">ディノバルド亜種<br>
+                        <input type="checkbox" value="テオ・テスカトル" class="mon">テオ・テスカトル<br>
+                        <input type="checkbox" value="ドスギルオス" class="mon">ドスギルオス<br>
+                        <input type="checkbox" value="ドスジャグラス" class="mon">ドスジャグラス<br>
+                        <input type="checkbox" value="ドドガマル" class="mon">ドドガマル<br>
+                        <input type="checkbox" value="トビカガチ" class="mon">トビカガチ<br>
+                        <input type="checkbox" value="トビカガチ亜種" class="mon">トビカガチ亜種<br>
+                        <input type="checkbox" value="ナナ・テスカトリ" class="mon">ナナ・テスカトリ<br>
+                        <input type="checkbox" value="ナルガクルガ" class="mon">ナルガクルガ<br>
+                        <input type="checkbox" value="ネルギガンテ" class="mon">ネルギガンテ<br>
+                        <input type="checkbox" value="悉くを殲ぼすネルギガンテ" class="mon">悉くを殲ぼすネルギガンテ<br>
+                        <input type="checkbox" value="ネロミェール" class="mon">ネロミェール<br>
+                        <input type="checkbox" value="パオウルムー" class="mon">パオウルムー<br>
+                        <input type="checkbox" value="パオウルムー亜種" class="mon">パオウルムー亜種<br>
+                        <input type="checkbox" value="バゼルギウス" class="mon">バゼルギウス<br>
+                        <input type="checkbox" value="紅蓮滾るバゼルギウス" class="mon">紅蓮滾るバゼルギウス<br>
+                        <input type="checkbox" value="バフバロ" class="mon">バフバロ<br>
+                        <input type="checkbox" value="プケプケ" class="mon">プケプケ<br>
+                        <input type="checkbox" value="プケプケ亜種" class="mon">プケプケ亜種<br>
+                        <input type="checkbox" value="ブラキディオス" class="mon">ブラキディオス<br>
+                        <input type="checkbox" value="猛り爆ぜるブラキディオス" class="mon">猛り爆ぜるブラキディオス<br>
+                        <input type="checkbox" value="ブラントドス" class="mon">ブラントドス<br>
+                        <input type="checkbox" value="ベヒーモス" class="mon">ベヒーモス<br>
+                        <input type="checkbox" value="ベリオロス" class="mon">ベリオロス<br>
+                        <input type="checkbox" value="氷刃佩くベリオロス" class="mon">氷刃佩くベリオロス<br>
+                        <input type="checkbox" value="ボルボロス" class="mon">ボルボロス<br>
+                        <input type="checkbox" value="マム・タロト" class="mon">マム・タロト<br>
+                        <input type="checkbox" value="ミラボレアス" class="mon">ミラボレアス<br>
+                        <input type="checkbox" value="ムフェト・ジーヴァ" class="mon">ムフェト・ジーヴァ<br>
+                        <input type="checkbox" value="ラージャン" class="mon">ラージャン<br>
+                        <input type="checkbox" value="激昂したラージャン" class="mon">激昂したラージャン<br>
+                        <input type="checkbox" value="ラドバルキン" class="mon">ラドバルキン<br>
+                        <input type="checkbox" value="リオレイア" class="mon">リオレイア<br>
+                        <input type="checkbox" value="リオレイア亜種" class="mon">リオレイア亜種<br>
+                        <input type="checkbox" value="リオレイア希少種" class="mon">リオレイア希少種<br>
+                        <input type="checkbox" value="リオレウス" class="mon">リオレウス<br>
+                        <input type="checkbox" value="リオレウス亜種" class="mon">リオレウス亜種<br>
+                        <input type="checkbox" value="リオレウス希少種" class="mon">リオレウス希少種<br>
+                        <input type="checkbox" value="レイギエナ" class="mon">レイギエナ<br>
+                        <input type="checkbox" value="凍て刺すレイギエナ" class="mon">凍て刺すレイギエナ<br>
+                        <input type="checkbox" value="レーシェン" class="mon">レーシェン<br>
+                        <input type="checkbox" value="エンシェント・レーシェン" class="mon">エンシェント・レーシェン<br>
+                        <input type="checkbox" value="アプケロス" class="mon">アプケロス<br>
+                        <input type="checkbox" value="アプトノス" class="mon">アプトノス<br>
+                        <input type="checkbox" value="ウルグ" class="mon">ウルグ<br>
+                        <input type="checkbox" value="ガウシカ" class="mon">ガウシカ<br>
+                        <input type="checkbox" value="ガジャブー" class="mon">ガジャブー<br>
+                        <input type="checkbox" value="ガストドン" class="mon">ガストドン<br>
+                        <input type="checkbox" value="ガライーバ" class="mon">ガライーバ<br>
+                        <input type="checkbox" value="カンタロス" class="mon">カンタロス<br>
+                        <input type="checkbox" value="ギルオス" class="mon">ギルオス<br>
+                        <input type="checkbox" value="ケストドン" class="mon">ケストドン<br>
+                        <input type="checkbox" value="ケルビ" class="mon">ケルビ<br>
+                        <input type="checkbox" value="コルトス" class="mon">コルトス<br>
+                        <input type="checkbox" value="ジャグラス" class="mon">ジャグラス<br>
+                        <input type="checkbox" value="シャムオス" class="mon">シャムオス<br>
+                        <input type="checkbox" value="ノイオス" class="mon">ノイオス<br>
+                        <input type="checkbox" value="バルノス" class="mon">バルノス<br>
+                        <input type="checkbox" value="ポポ" class="mon">ポポ<br>
+                        <input type="checkbox" value="ボワボワ" class="mon">ボワボワ<br>
+                        <input type="checkbox" value="メルノス" class="mon">メルノス<br>
+                        <input type="checkbox" value="モス" class="mon">モス<br>
+                        <input type="checkbox" value="ラフィノス" class="mon">ラフィノス<br>
+                        <input type="checkbox" value="ランゴスタ" class="mon">ランゴスタ<br>
+                        <input type="checkbox" value="無し" class="mon">無し
+                    </td>
+                </tr>
+            </table>
+        </div><br>
+
+        <div>
+            <table border="1" style="border-collapse: collapse" width="100%">
+            <tr><th>種族</th></tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" value="古龍種" class="zok">古龍種　
+                        <input type="checkbox" value="獣竜種" class="zok">獣竜種　
+                        <input type="checkbox" value="鳥竜種" class="zok">鳥竜種　
+                        <input type="checkbox" value="魚竜種" class="zok">魚竜種　
+                        <input type="checkbox" value="牙竜種" class="zok">牙竜種　
+                        <input type="checkbox" value="飛竜種" class="zok">飛竜種　
+                        <input type="checkbox" value="牙獣種" class="zok">牙獣種　
+                        <input type="checkbox" value="遺存種" class="zok">遺存種　
+                        <input type="checkbox" value="草食種" class="zok">草食種　
+                        <input type="checkbox" value="獣人種" class="zok">獣人種　
+                        <input type="checkbox" value="甲虫種" class="zok">甲虫種　
+                        <input type="checkbox" value="翼竜種" class="zok">翼竜種　
+                        <input type="checkbox" value="無し" class="zok">無し
+                    </td>
+                </tr>
+            </table>
+        </div><br>
+
+        <div>
+            <table border="1" style="border-collapse: collapse" width="100%">
+            <tr><th>状態</th></tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" value="歴戦" class="jou">歴戦個体　
+                        <input type="checkbox" value="歴戦王" class="jou">歴戦王個体　
+                    </td>
+                </tr>
+            </table>
+        </div><br>
+
+        <div>
+            <table border="1" style="border-collapse: collapse" id="t1" width="100%">
+                <thead>
+                    <tr>
+                        <th>ランク</th>
+                        <th>種別</th>
+                        <th>目的地</th>
+                        <th>クエスト名</th>
+                        <th>種類</th>
+                        <th>対象モンスター</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="rank">★1</td><td class="bet">任務</td><td class="loc">古代樹の森</td><td>ジャグラスと古代樹の森</td><td class="rui">討伐</td><td>ジャグラス x7</td><td class="mon">ジャグラス </td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★1</td><td class="bet">フリー</td><td class="loc">古代樹の森</td><td>突撃ケストドン！</td><td class="rui">討伐</td><td>ケストドン x12</td><td class="mon">ケストドン </td><td class="zok">草食種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★1</td><td class="bet">フリー</td><td class="loc">古代樹の森</td><td>森のならず者たち</td><td class="rui">討伐</td><td>ジャグラス x7</td><td class="mon">ジャグラス </td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★1</td><td class="bet">フリー</td><td class="loc">古代樹の森</td><td>古代樹の森でキノコ狩り</td><td class="rui">納品</td><td>-</td><td class="mon">無し</td><td class="zok">無し</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★1</td><td class="bet">イベント</td><td class="loc">闘技場</td><td>暁の大騒ぎ</td><td class="rui">討伐</td><td>ケストドン x12</td><td class="mon">ケストドン </td><td class="zok">草食種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★1</td><td class="bet">闘技大会</td><td class="loc">闘技場</td><td>闘技大会01</td><td class="rui">闘技</td><td>プケプケ</td><td class="mon">プケプケ</td><td class="zok">鳥竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★2</td><td class="bet">任務</td><td class="loc">古代樹の森</td><td>ケストドンは不穏と共に</td><td class="rui">討伐</td><td>ケストドン x12</td><td class="mon">ケストドン </td><td class="zok">草食種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★2</td><td class="bet">任務</td><td class="loc">古代樹の森</td><td>ドスジャグラスを狩猟せよ</td><td class="rui">狩猟</td><td>ドスジャグラス</td><td class="mon">ドスジャグラス</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★2</td><td class="bet">任務</td><td class="loc">古代樹の森</td><td>キャンプ設営は命がけ</td><td class="rui">狩猟</td><td>クルルヤック</td><td class="mon">クルルヤック</td><td class="zok">鳥竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★2</td><td class="bet">フリー</td><td class="loc">古代樹の森</td><td>深緑より出るフードファイター</td><td class="rui">狩猟</td><td>ドスジャグラス</td><td class="mon">ドスジャグラス</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★2</td><td class="bet">フリー</td><td class="loc">古代樹の森</td><td>クルルヤックは収集家？</td><td class="rui">狩猟</td><td>クルルヤック</td><td class="mon">クルルヤック</td><td class="zok">鳥竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★2</td><td class="bet">フリー</td><td class="loc">大蟻塚の荒地</td><td>捕獲：掻鳥の生態調査</td><td class="rui">捕獲</td><td>クルルヤック</td><td class="mon">クルルヤック</td><td class="zok">鳥竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★2</td><td class="bet">フリー</td><td class="loc">大蟻塚の荒地</td><td>美味い魚にゃ牙がある</td><td class="rui">討伐</td><td>ガライーバ x7</td><td class="mon">ガライーバ </td><td class="zok">魚竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★2</td><td class="bet">フリー</td><td class="loc">大蟻塚の荒地</td><td>荒野の虫退治</td><td class="rui">討伐</td><td>ランゴスタ x14</td><td class="mon">ランゴスタ </td><td class="zok">甲虫種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★2</td><td class="bet">イベント</td><td class="loc">古代樹の森</td><td>大食らい共が参る！</td><td class="rui">狩猟</td><td>ドスジャグラス x2</td><td class="mon">ドスジャグラス </td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★2</td><td class="bet">闘技大会</td><td class="loc">闘技場</td><td>闘技大会02</td><td class="rui">闘技</td><td>クルルヤック</td><td class="mon">クルルヤック</td><td class="zok">鳥竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★2</td><td class="bet">チャレンジ</td><td class="loc">特殊闘技場</td><td>ランゴスタ大発生！！</td><td class="rui">チャレンジ</td><td>ランゴスタ x30</td><td class="mon">ランゴスタ </td><td class="zok">甲虫種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★2</td><td class="bet">チャレンジ</td><td class="loc">特殊闘技場</td><td>初級チャレンジクエスト01</td><td class="rui">チャレンジ</td><td>クルルヤック、プケプケ</td><td class="mon">クルルヤック プケプケ</td><td class="zok">鳥竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★3</td><td class="bet">任務</td><td class="loc">古代樹の森</td><td>緊急任務・プケプケの狩猟</td><td class="rui">狩猟</td><td>プケプケ</td><td class="mon">プケプケ</td><td class="zok">鳥竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★3</td><td class="bet">任務</td><td class="loc">大蟻塚の荒地</td><td>猪突猛進の輩達！？</td><td class="rui">特殊</td><td>ボルボロス</td><td class="mon">ボルボロス</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★3</td><td class="bet">任務</td><td class="loc">大蟻塚の荒地</td><td>不穏の沼影</td><td class="rui">特殊</td><td>ジュラトドス</td><td class="mon">ジュラトドス</td><td class="zok">魚竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★3</td><td class="bet">任務</td><td class="loc">古代樹の森</td><td>電影走るはトビカガチ</td><td class="rui">狩猟</td><td>トビカガチ</td><td class="mon">トビカガチ</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★3</td><td class="bet">フリー</td><td class="loc">古代樹の森</td><td>毒妖鳥プケプケの調査</td><td class="rui">狩猟</td><td>プケプケ</td><td class="mon">プケプケ</td><td class="zok">鳥竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★3</td><td class="bet">フリー</td><td class="loc">古代樹の森</td><td>飛雷竜が舞う森</td><td class="rui">狩猟</td><td>トビカガチ</td><td class="mon">トビカガチ</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★3</td><td class="bet">フリー</td><td class="loc">大蟻塚の荒地</td><td>泥まみれの大激突！</td><td class="rui">狩猟</td><td>ボルボロス</td><td class="mon">ボルボロス</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★3</td><td class="bet">フリー</td><td class="loc">大蟻塚の荒地</td><td>泥辺に忍び寄るジュラトドス</td><td class="rui">狩猟</td><td>ジュラトドス</td><td class="mon">ジュラトドス</td><td class="zok">魚竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★3</td><td class="bet">フリー</td><td class="loc">大蟻塚の荒地</td><td>そろそろ仙人掌の季節です</td><td class="rui">納品</td><td>-</td><td class="mon">無し</td><td class="zok">無し</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★3</td><td class="bet">フリー</td><td class="loc">大蟻塚の荒地</td><td>俺は荒野の運搬屋</td><td class="rui">納品</td><td>-</td><td class="mon">無し</td><td class="zok">無し</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★3</td><td class="bet">フリー</td><td class="loc">大蟻塚の荒地</td><td>捕獲：土砂竜の生態調査</td><td class="rui">捕獲</td><td>ボルボロス</td><td class="mon">ボルボロス</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★3</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：毒妖鳥編</td><td class="rui">狩猟</td><td>プケプケ</td><td class="mon">プケプケ</td><td class="zok">鳥竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★3</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：土砂竜編</td><td class="rui">狩猟</td><td>ボルボロス</td><td class="mon">ボルボロス</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★3</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：飛雷竜編</td><td class="rui">狩猟</td><td>トビカガチ</td><td class="mon">トビカガチ</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★3</td><td class="bet">イベント</td><td class="loc">古代樹の森</td><td>日がくれるまでの短い間</td><td class="rui">狩猟</td><td>プケプケ、トビカガチ</td><td class="mon">プケプケ トビカガチ</td><td class="zok">鳥竜種 牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★3</td><td class="bet">イベント</td><td class="loc">闘技場</td><td>USJ・躍動せよ、金の星達！</td><td class="rui">狩猟</td><td>ドスジャグラス x3</td><td class="mon">ドスジャグラス </td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★3</td><td class="bet">闘技大会</td><td class="loc">闘技場</td><td>泥土の道をいとわぬ者よ</td><td class="rui">チャレンジ</td><td>ボルボロス</td><td class="mon">ボルボロス</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★4</td><td class="bet">任務</td><td class="loc">古代樹の森</td><td>森の暴れん坊・アンジャナフ</td><td class="rui">狩猟</td><td>アンジャナフ</td><td class="mon">アンジャナフ</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★4</td><td class="bet">任務</td><td class="loc">大峡谷</td><td>ゾラ・マグダラオス捕獲作戦</td><td class="rui">特殊</td><td>ゾラ・マグダラオス</td><td class="mon">ゾラ・マグダラオス</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★4</td><td class="bet">任務</td><td class="loc">陸珊瑚の台地</td><td>飛べ、パオウルムー！</td><td class="rui">狩猟</td><td>パオウルムー</td><td class="mon">パオウルムー</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★4</td><td class="bet">任務</td><td class="loc">瘴気の谷</td><td>ラドバルキン狩猟は粉骨砕身！</td><td class="rui">狩猟</td><td>ラドバルキン</td><td class="mon">ラドバルキン</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★4</td><td class="bet">フリー</td><td class="loc">古代樹の森</td><td>蛮勇なる牙との対峙</td><td class="rui">狩猟</td><td>アンジャナフ</td><td class="mon">アンジャナフ</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★4</td><td class="bet">フリー</td><td class="loc">古代樹の森</td><td>俺は森の運搬屋</td><td class="rui">納品</td><td>-</td><td class="mon">無し</td><td class="zok">無し</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★4</td><td class="bet">フリー</td><td class="loc">大蟻塚の荒地</td><td>女王は荒地にて燃ゆる</td><td class="rui">狩猟</td><td>リオレイア</td><td class="mon">リオレイア</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★4</td><td class="bet">フリー</td><td class="loc">陸珊瑚の台地</td><td>闇をまとう赤光</td><td class="rui">討伐</td><td>シャムオス x11</td><td class="mon">シャムオス </td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★4</td><td class="bet">フリー</td><td class="loc">陸珊瑚の台地</td><td>薄暗闇からツィツィヤック</td><td class="rui">狩猟</td><td>ツィツィヤック</td><td class="mon">ツィツィヤック</td><td class="zok">鳥竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★4</td><td class="bet">フリー</td><td class="loc">陸珊瑚の台地</td><td>ふわぷかパオウルムー</td><td class="rui">狩猟</td><td>パオウルムー</td><td class="mon">パオウルムー</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★4</td><td class="bet">フリー</td><td class="loc">陸珊瑚の台地</td><td>陸の貝は深海の夢を見るか？</td><td class="rui">納品</td><td>-</td><td class="mon">無し</td><td class="zok">無し</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★4</td><td class="bet">フリー</td><td class="loc">陸珊瑚の台地</td><td>捕獲：浮空竜の生態調査</td><td class="rui">捕獲</td><td>パオウルムー</td><td class="mon">パオウルムー</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★4</td><td class="bet">フリー</td><td class="loc">瘴気の谷</td><td>怒涛のカンタロス祭り</td><td class="rui">討伐</td><td>カンタロス x14</td><td class="mon">カンタロス </td><td class="zok">甲虫種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★4</td><td class="bet">フリー</td><td class="loc">瘴気の谷</td><td>ドスギルオスは麻痺の香り</td><td class="rui">狩猟</td><td>ドスギルオス</td><td class="mon">ドスギルオス</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★4</td><td class="bet">フリー</td><td class="loc">瘴気の谷</td><td>骨戦車、谷をゆく</td><td class="rui">狩猟</td><td>ラドバルキン</td><td class="mon">ラドバルキン</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★4</td><td class="bet">フリー</td><td class="loc">瘴気の谷</td><td>羽ばたく悪夢</td><td class="rui">討伐</td><td>ラフィノス x5</td><td class="mon">ラフィノス </td><td class="zok">翼竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★4</td><td class="bet">フリー</td><td class="loc">陸珊瑚の台地</td><td>ツィツィヤックをやっつけろ！</td><td class="rui">狩猟</td><td>ツィツィヤック</td><td class="mon">ツィツィヤック</td><td class="zok">鳥竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★4</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：蛮顎竜編</td><td class="rui">狩猟</td><td>アンジャナフ</td><td class="mon">アンジャナフ</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★4</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：雌火竜編</td><td class="rui">狩猟</td><td>リオレイア</td><td class="mon">リオレイア</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★4</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：浮空竜編</td><td class="rui">狩猟</td><td>パオウルムー</td><td class="mon">パオウルムー</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★4</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：骨鎚竜編</td><td class="rui">狩猟</td><td>ラドバルキン</td><td class="mon">ラドバルキン</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★4</td><td class="bet">イベント</td><td class="loc">古代樹の森</td><td>暴れん坊、早起きして散歩する</td><td class="rui">狩猟</td><td>アンジャナフ x2</td><td class="mon">アンジャナフ </td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★4</td><td class="bet">イベント</td><td class="loc">特殊闘技場</td><td>共闘ヤック×ヤック</td><td class="rui">狩猟</td><td>クルルヤック、ツィツィヤック</td><td class="mon">クルルヤック ツィツィヤック</td><td class="zok">鳥竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★4</td><td class="bet">イベント</td><td class="loc">特殊闘技場</td><td>食という欲の扉を開け！</td><td class="rui">狩猟</td><td>ドスジャグラス、プケプケ、パオウルムー</td><td class="mon">ドスジャグラス プケプケ パオウルムー</td><td class="zok">牙竜種 鳥竜種 飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★4</td><td class="bet">闘技大会</td><td class="loc">闘技場</td><td>闘技大会03</td><td class="rui">闘技</td><td>リオレイア</td><td class="mon">リオレイア</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★4</td><td class="bet">チャレンジ</td><td class="loc">闘技場</td><td>初級チャレンジクエスト02</td><td class="rui">チャレンジ</td><td>パオウルムー、トビカガチ</td><td class="mon">パオウルムー トビカガチ</td><td class="zok">飛竜種 牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★5</td><td class="bet">任務</td><td class="loc">陸珊瑚の台地</td><td>華麗なるハンター・レイギエナ</td><td class="rui">狩猟</td><td>レイギエナ</td><td class="mon">レイギエナ</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★5</td><td class="bet">任務</td><td class="loc">瘴気の谷</td><td>谷の底にて待ち受けたるは</td><td class="rui">特殊</td><td>オドガロン</td><td class="mon">オドガロン</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★5</td><td class="bet">任務</td><td class="loc">古代樹の森</td><td>火の竜は森の頂</td><td class="rui">狩猟</td><td>リオレウス</td><td class="mon">リオレウス</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★5</td><td class="bet">任務</td><td class="loc">大蟻塚の荒地</td><td>角の竜は砂の底</td><td class="rui">狩猟</td><td>ディアブロス</td><td class="mon">ディアブロス</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★5</td><td class="bet">フリー</td><td class="loc">古代樹の森</td><td>王は頂にて眠る</td><td class="rui">狩猟</td><td>リオレウス</td><td class="mon">リオレウス</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★5</td><td class="bet">フリー</td><td class="loc">古代樹の森</td><td>最強・最恐・最高夫妻！</td><td class="rui">狩猟</td><td>リオレウス、リオレイア</td><td class="mon">リオレウス リオレイア</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★5</td><td class="bet">フリー</td><td class="loc">大蟻塚の荒地</td><td>砂上の双角</td><td class="rui">狩猟</td><td>ディアブロス</td><td class="mon">ディアブロス</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★5</td><td class="bet">フリー</td><td class="loc">陸珊瑚の台地</td><td>氷結の奏鳴曲</td><td class="rui">狩猟</td><td>レイギエナ</td><td class="mon">レイギエナ</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★5</td><td class="bet">フリー</td><td class="loc">陸珊瑚の台地</td><td>蒼白き蹄の調べ</td><td class="rui">討伐</td><td>キリン</td><td class="mon">キリン</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★5</td><td class="bet">フリー</td><td class="loc">瘴気の谷</td><td>無惨凶爪</td><td class="rui">狩猟</td><td>オドガロン</td><td class="mon">オドガロン</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★5</td><td class="bet">フリー</td><td class="loc">瘴気の谷</td><td>捕獲：惨爪竜の生態調査</td><td class="rui">捕獲</td><td>オドガロン</td><td class="mon">オドガロン</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★5</td><td class="bet">フリー</td><td class="loc">瘴気の谷</td><td>虎穴に入らずんば肉を得ず</td><td class="rui">納品</td><td>-</td><td class="mon">無し</td><td class="zok">無し</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★5</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：風漂竜編</td><td class="rui">狩猟</td><td>レイギエナ</td><td class="mon">レイギエナ</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★5</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：惨爪竜編</td><td class="rui">狩猟</td><td>オドガロン</td><td class="mon">オドガロン</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★5</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：火竜編</td><td class="rui">狩猟</td><td>リオレウス</td><td class="mon">リオレウス</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★5</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：角竜編</td><td class="rui">狩猟</td><td>ディアブロス</td><td class="mon">ディアブロス</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★5</td><td class="bet">イベント</td><td class="loc">闘技場</td><td>野生の教え</td><td class="rui">討伐</td><td>バルノス x8</td><td class="mon">バルノス </td><td class="zok">翼竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★5</td><td class="bet">イベント</td><td class="loc">陸珊瑚の台地</td><td>双幻影</td><td class="rui">討伐</td><td>キリン x2</td><td class="mon">キリン </td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★5</td><td class="bet">イベント</td><td class="loc">闘技場</td><td>ハンター達の永い夢</td><td class="rui">狩猟</td><td>パオウルムー、リオレウス</td><td class="mon">パオウルムー リオレウス</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★5</td><td class="bet">イベント</td><td class="loc">特殊闘技場</td><td>縄張り争い決定戦</td><td class="rui">狩猟</td><td>ディアブロス、ボルボロス x2</td><td class="mon">ディアブロス ボルボロス </td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★5</td><td class="bet">イベント</td><td class="loc">特殊闘技場</td><td>骨肉の狩り</td><td class="rui">狩猟</td><td>ラドバルキン、オドガロン</td><td class="mon">ラドバルキン オドガロン</td><td class="zok">獣竜種 牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★5</td><td class="bet">イベント</td><td class="loc">古代樹の森</td><td>翼ある者には毒がある</td><td class="rui">狩猟</td><td>プケプケ、リオレイア、リオレウス</td><td class="mon">プケプケ リオレイア リオレウス</td><td class="zok">鳥竜種 飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">任務</td><td class="loc">地脈回廊</td><td>ゾラ・マグダラオス誘導作戦</td><td class="rui">特殊</td><td>ゾラ・マグダラオス</td><td class="mon">ゾラ・マグダラオス</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">任務</td><td class="loc">大蟻塚の荒地</td><td>驚愕の！プケプケ！調査！</td><td class="rui">狩猟</td><td>プケプケ</td><td class="mon">プケプケ</td><td class="zok">鳥竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">任務</td><td class="loc">大蟻塚の荒地</td><td>暴れん坊、さらにあばれる</td><td class="rui">狩猟</td><td>アンジャナフ</td><td class="mon">アンジャナフ</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">フリー</td><td class="loc">地脈回廊</td><td>懐かしきアーベントロート</td><td class="rui">特殊</td><td>ゾラ・マグダラオス</td><td class="mon">ゾラ・マグダラオス</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">フリー</td><td class="loc">古代樹の森</td><td>ドスジャグラスの狩猟</td><td class="rui">狩猟</td><td>ドスジャグラス</td><td class="mon">ドスジャグラス</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">フリー</td><td class="loc">古代樹の森</td><td>プケプケの狩猟</td><td class="rui">狩猟</td><td>プケプケ</td><td class="mon">プケプケ</td><td class="zok">鳥竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">フリー</td><td class="loc">古代樹の森</td><td>トビカガチの狩猟</td><td class="rui">狩猟</td><td>トビカガチ</td><td class="mon">トビカガチ</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">フリー</td><td class="loc">古代樹の森</td><td>アンジャナフの狩猟</td><td class="rui">狩猟</td><td>アンジャナフ</td><td class="mon">アンジャナフ</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">フリー</td><td class="loc">古代樹の森</td><td>眠りの森の女王</td><td class="rui">狩猟</td><td>リオレイア</td><td class="mon">リオレイア</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">フリー</td><td class="loc">古代樹の森</td><td>捕獲：飛雷の如く効くアレ</td><td class="rui">捕獲</td><td>トビカガチ</td><td class="mon">トビカガチ</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">フリー</td><td class="loc">大蟻塚の荒地</td><td>クルルヤックの狩猟</td><td class="rui">狩猟</td><td>クルルヤック</td><td class="mon">クルルヤック</td><td class="zok">鳥竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">フリー</td><td class="loc">大蟻塚の荒地</td><td>ボルボロスの狩猟</td><td class="rui">狩猟</td><td>ボルボロス</td><td class="mon">ボルボロス</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">フリー</td><td class="loc">大蟻塚の荒地</td><td>毒妖鳥、荒地に潜む</td><td class="rui">狩猟</td><td>プケプケ</td><td class="mon">プケプケ</td><td class="zok">鳥竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">フリー</td><td class="loc">大蟻塚の荒地</td><td>ジュラトドスの狩猟</td><td class="rui">狩猟</td><td>ジュラトドス</td><td class="mon">ジュラトドス</td><td class="zok">魚竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">フリー</td><td class="loc">大蟻塚の荒地</td><td>リオレイアの狩猟</td><td class="rui">狩猟</td><td>リオレイア</td><td class="mon">リオレイア</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">フリー</td><td class="loc">大蟻塚の荒地</td><td>暴れん坊、荒地を訪れる</td><td class="rui">狩猟</td><td>アンジャナフ</td><td class="mon">アンジャナフ</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">フリー</td><td class="loc">陸珊瑚の台地</td><td>ツィツィヤックの狩猟</td><td class="rui">狩猟</td><td>ツィツィヤック</td><td class="mon">ツィツィヤック</td><td class="zok">鳥竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">フリー</td><td class="loc">陸珊瑚の台地</td><td>パオウルムーの狩猟</td><td class="rui">狩猟</td><td>パオウルムー</td><td class="mon">パオウルムー</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">フリー</td><td class="loc">瘴気の谷</td><td>痺れるアイツは隠し味</td><td class="rui">狩猟</td><td>ドスギルオス</td><td class="mon">ドスギルオス</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">フリー</td><td class="loc">瘴気の谷</td><td>ラドバルキンの狩猟</td><td class="rui">狩猟</td><td>ラドバルキン</td><td class="mon">ラドバルキン</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">フリー</td><td class="loc">瘴気の谷</td><td>料理長の！ワクワク納品依頼</td><td class="rui">納品</td><td>-</td><td class="mon">無し</td><td class="zok">無し</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">フリー</td><td class="loc">瘴気の谷</td><td>料理長の！ドキドキ討伐依頼</td><td class="rui">討伐</td><td>ギルオス x10</td><td class="mon">ギルオス </td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">フリー</td><td class="loc">龍結晶の地</td><td>ガストドンは急に止まれない</td><td class="rui">討伐</td><td>ガストドン x13</td><td class="mon">ガストドン </td><td class="zok">草食種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">フリー</td><td class="loc">龍結晶の地</td><td>バルノスの討伐</td><td class="rui">討伐</td><td>バルノス x5</td><td class="mon">バルノス </td><td class="zok">翼竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">フリー</td><td class="loc">龍結晶の地</td><td>奴の名はドドガマル</td><td class="rui">狩猟</td><td>ドドガマル</td><td class="mon">ドドガマル</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">フリー</td><td class="loc">龍結晶の地</td><td>料理長の！ハラハラ撃退依頼</td><td class="rui">討伐</td><td>ガジャブー x10</td><td class="mon">ガジャブー </td><td class="zok">獣人種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：毒妖鳥上位編</td><td class="rui">狩猟</td><td>プケプケ</td><td class="mon">プケプケ</td><td class="zok">鳥竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：土砂竜上位編</td><td class="rui">狩猟</td><td>ボルボロス</td><td class="mon">ボルボロス</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：飛雷竜上位編</td><td class="rui">狩猟</td><td>トビカガチ</td><td class="mon">トビカガチ</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：蛮顎竜上位編</td><td class="rui">狩猟</td><td>アンジャナフ</td><td class="mon">アンジャナフ</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：雌火竜上位編</td><td class="rui">狩猟</td><td>リオレイア</td><td class="mon">リオレイア</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：浮空竜上位編</td><td class="rui">狩猟</td><td>パオウルムー</td><td class="mon">パオウルムー</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：骨鎚竜上位編</td><td class="rui">狩猟</td><td>ラドバルキン</td><td class="mon">ラドバルキン</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">イベント</td><td class="loc">闘技場</td><td>モスはモスでもモスのモス</td><td class="rui">狩猟</td><td>モス x5</td><td class="mon">モス </td><td class="zok">草食種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">イベント</td><td class="loc">闘技場</td><td>真夜中の大騒ぎ</td><td class="rui">討伐</td><td>ガストドン x10</td><td class="mon">ガストドン </td><td class="zok">草食種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">イベント</td><td class="loc">古代樹の森</td><td>試練</td><td class="rui">狩猟</td><td>アンジャナフ</td><td class="mon">アンジャナフ</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">イベント</td><td class="loc">地脈回廊</td><td>モルゲンロートに見ゆ</td><td class="rui">特殊</td><td>ゾラ・マグダラオス</td><td class="mon">ゾラ・マグダラオス</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">イベント</td><td class="loc">陸珊瑚の台地</td><td>オレ達。ならず者</td><td class="rui">討伐</td><td>シャムオス x13</td><td class="mon">シャムオス </td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">イベント</td><td class="loc">闘技場</td><td>眩しさに抗う者達</td><td class="rui">狩猟</td><td>ツィツィヤック x3</td><td class="mon">ツィツィヤック </td><td class="zok">鳥竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">イベント</td><td class="loc">闘技場</td><td>卵好きになろう！</td><td class="rui">狩猟</td><td>クルルヤック</td><td class="mon">クルルヤック</td><td class="zok">鳥竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">イベント</td><td class="loc">陸珊瑚の台地</td><td>身も心もユラユラ</td><td class="rui">納品</td><td>-</td><td class="mon">無し</td><td class="zok">無し</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">イベント</td><td class="loc">特殊闘技場</td><td>ドドド三兄弟</td><td class="rui">狩猟</td><td>ドスジャグラス、ドスギルオス、ドドガマル</td><td class="mon">ドスジャグラス ドスギルオス ドドガマル</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">闘技大会</td><td class="loc">闘技場</td><td>闘技大会04</td><td class="rui">闘技</td><td>ツィツィヤック</td><td class="mon">ツィツィヤック</td><td class="zok">鳥竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">闘技大会</td><td class="loc">闘技場</td><td>闘技大会05</td><td class="rui">闘技</td><td>ボルボロス</td><td class="mon">ボルボロス</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">闘技大会</td><td class="loc">闘技場</td><td>闘技大会06</td><td class="rui">闘技</td><td>ドドガマル</td><td class="mon">ドドガマル</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">チャレンジ</td><td class="loc">闘技場</td><td>ガジャブー大脱走！！</td><td class="rui">チャレンジ</td><td>ガジャブー x10</td><td class="mon">ガジャブー </td><td class="zok">獣人種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★6</td><td class="bet">特別・偵察</td><td class="loc">大蟻塚の荒地</td><td>異世界からの来訪者</td><td class="rui">特殊</td><td>クルルヤック</td><td class="mon">クルルヤック</td><td class="zok">鳥竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">任務</td><td class="loc">陸珊瑚の台地</td><td>不思議の国の女王</td><td class="rui">特殊</td><td>リオレイア亜種</td><td class="mon">リオレイア亜種</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">フリー</td><td class="loc">古代樹の森</td><td>リオレウスの狩猟</td><td class="rui">狩猟</td><td>リオレウス</td><td class="mon">リオレウス</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">フリー</td><td class="loc">古代樹の森</td><td>リオレウス亜種の狩猟</td><td class="rui">狩猟</td><td>リオレウス亜種</td><td class="mon">リオレウス亜種</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">フリー</td><td class="loc">古代樹の森</td><td>蒼紅乱麻</td><td class="rui">狩猟</td><td>リオレウス、リオレウス亜種</td><td class="mon">リオレウス リオレウス亜種</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">フリー</td><td class="loc">大蟻塚の荒地</td><td>リオレイア亜種の狩猟</td><td class="rui">狩猟</td><td>リオレイア亜種</td><td class="mon">リオレイア亜種</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">フリー</td><td class="loc">大蟻塚の荒地</td><td>ディアブロスの狩猟</td><td class="rui">狩猟</td><td>ディアブロス</td><td class="mon">ディアブロス</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">フリー</td><td class="loc">大蟻塚の荒地</td><td>黒角竜は砂地がお好き</td><td class="rui">狩猟</td><td>ディアブロス亜種</td><td class="mon">ディアブロス亜種</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">フリー</td><td class="loc">大蟻塚の荒地</td><td>荒野の大大大暴動！</td><td class="rui">狩猟</td><td>ディアブロス、ディアブロス亜種</td><td class="mon">ディアブロス ディアブロス亜種</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">フリー</td><td class="loc">陸珊瑚の台地</td><td>台地の吹雪は桜色</td><td class="rui">狩猟</td><td>リオレイア亜種</td><td class="mon">リオレイア亜種</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">フリー</td><td class="loc">陸珊瑚の台地</td><td>レイギエナの狩猟</td><td class="rui">狩猟</td><td>レイギエナ</td><td class="mon">レイギエナ</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">フリー</td><td class="loc">陸珊瑚の台地</td><td>お楽しみはオドガロンの後で</td><td class="rui">狩猟</td><td>オドガロン</td><td class="mon">オドガロン</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">フリー</td><td class="loc">陸珊瑚の台地</td><td>涼爪と惨爪が交わる場所</td><td class="rui">狩猟</td><td>レイギエナ、オドガロン</td><td class="mon">レイギエナ オドガロン</td><td class="zok">飛竜種 牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">フリー</td><td class="loc">瘴気の谷</td><td>オドガロンの狩猟</td><td class="rui">狩猟</td><td>オドガロン</td><td class="mon">オドガロン</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">フリー</td><td class="loc">龍結晶の地</td><td>溶岩竜ヴォルガノス</td><td class="rui">狩猟</td><td>ヴォルガノス</td><td class="mon">ヴォルガノス</td><td class="zok">魚竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">フリー</td><td class="loc">龍結晶の地</td><td>ウラガンキンが転がります！</td><td class="rui">狩猟</td><td>ウラガンキン</td><td class="mon">ウラガンキン</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">フリー</td><td class="loc">龍結晶の地</td><td>それは蒼き空の王者</td><td class="rui">狩猟</td><td>リオレウス亜種</td><td class="mon">リオレウス亜種</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">フリー</td><td class="loc">龍結晶の地</td><td>奇襲燎原バゼルギウス</td><td class="rui">狩猟</td><td>バゼルギウス</td><td class="mon">バゼルギウス</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">フリー</td><td class="loc">龍結晶の地</td><td>火と火に交わる者達</td><td class="rui">狩猟</td><td>ヴォルガノス、ウラガンキン</td><td class="mon">ヴォルガノス ウラガンキン</td><td class="zok">魚竜種 獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">フリー</td><td class="loc">古代樹の森</td><td>あなたも私も食物連鎖</td><td class="rui">狩猟</td><td>イビルジョー</td><td class="mon">イビルジョー</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：桜火竜上位編</td><td class="rui">狩猟</td><td>リオレイア亜種</td><td class="mon">リオレイア亜種</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：風漂竜上位編</td><td class="rui">狩猟</td><td>レイギエナ</td><td class="mon">レイギエナ</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：惨爪竜上位編</td><td class="rui">狩猟</td><td>オドガロン</td><td class="mon">オドガロン</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：爆鎚竜上位編</td><td class="rui">狩猟</td><td>ウラガンキン</td><td class="mon">ウラガンキン</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：火竜上位編</td><td class="rui">狩猟</td><td>リオレウス</td><td class="mon">リオレウス</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：蒼火竜上位編</td><td class="rui">狩猟</td><td>リオレウス亜種</td><td class="mon">リオレウス亜種</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：角竜上位編</td><td class="rui">狩猟</td><td>ディアブロス</td><td class="mon">ディアブロス</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：黒角竜上位編</td><td class="rui">狩猟</td><td>ディアブロス亜種</td><td class="mon">ディアブロス亜種</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">イベント</td><td class="loc">大蟻塚の荒地</td><td>ふたりの女王</td><td class="rui">狩猟</td><td>リオレイア、リオレイア亜種</td><td class="mon">リオレイア リオレイア亜種</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">イベント</td><td class="loc">龍結晶の地</td><td>空飛ぶ者に恐れはいらぬ</td><td class="rui">狩猟</td><td>リオレウス、リオレウス亜種</td><td class="mon">リオレウス リオレウス亜種</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">イベント</td><td class="loc">闘技場</td><td>ラッシュ大騒動！！？</td><td class="rui">狩猟</td><td>オドガロン x2</td><td class="mon">オドガロン </td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">イベント</td><td class="loc">龍結晶の地</td><td>USJ・燃えよ、蒼き星達！</td><td class="rui">狩猟</td><td>ドドガマル、リオレウス亜種</td><td class="mon">ドドガマル リオレウス亜種</td><td class="zok">牙竜種 飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">イベント</td><td class="loc">龍結晶の地</td><td>ウラガンキン達が転がります！</td><td class="rui">狩猟</td><td>ウラガンキン x2</td><td class="mon">ウラガンキン </td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">イベント</td><td class="loc">大蟻塚の荒地</td><td>暴動とは斯くの如し</td><td class="rui">狩猟</td><td>ディアブロス、ディアブロス亜種</td><td class="mon">ディアブロス ディアブロス亜種</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">イベント</td><td class="loc">古代樹の森</td><td>深緑のブルース</td><td class="rui">狩猟</td><td>ドスジャグラス、プケプケ、トビカガチ、アンジャナフ、リオレウス</td><td class="mon">ドスジャグラス プケプケ トビカガチ アンジャナフ リオレウス</td><td class="zok">牙竜種 鳥竜種 獣竜種 飛竜種 </td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">イベント</td><td class="loc">大蟻塚の荒地</td><td>荒れ野のボレロ</td><td class="rui">狩猟</td><td>クルルヤック、ボルボロス、ジュラトドス、リオレイア、ディアブロス</td><td class="mon">クルルヤック ボルボロス ジュラトドス リオレイア ディアブロス</td><td class="zok">鳥竜種 獣竜種 魚竜種 飛竜種 </td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">イベント</td><td class="loc">陸珊瑚の台地</td><td>海台のワルツ</td><td class="rui">狩猟</td><td>ツィツィヤック、パオウルムー、リオレイア亜種、レイギエナ</td><td class="mon">ツィツィヤック パオウルムー リオレイア亜種 レイギエナ</td><td class="zok">鳥竜種 飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">イベント</td><td class="loc">瘴気の谷</td><td>頽廃の谷のオペラ</td><td class="rui">狩猟</td><td>ドスギルオス、ラドバルキン、オドガロン、バゼルギウス</td><td class="mon">ドスギルオス ラドバルキン オドガロン バゼルギウス</td><td class="zok">牙竜種 獣竜種 飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">イベント</td><td class="loc">龍結晶の地</td><td>結晶達のロックンロール</td><td class="rui">狩猟</td><td>ドドガマル、ウラガンキン、ヴォルガノス、リオレウス亜種</td><td class="mon">ドドガマル ウラガンキン ヴォルガノス リオレウス亜種</td><td class="zok">牙竜種 獣竜種 魚竜種 飛竜種 </td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">闘技大会</td><td class="loc">闘技場</td><td>闘技大会07</td><td class="rui">闘技</td><td>リオレウス亜種</td><td class="mon">リオレウス亜種</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">チャレンジ</td><td class="loc">闘技場</td><td>乱れ桜は春爛漫・Ⅰ</td><td class="rui">チャレンジ</td><td>リオレイア亜種</td><td class="mon">リオレイア亜種</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">チャレンジ</td><td class="loc">闘技場</td><td>乱れ桜は春爛漫・Ⅱ</td><td class="rui">チャレンジ</td><td>リオレイア亜種</td><td class="mon">リオレイア亜種</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">チャレンジ</td><td class="loc">闘技場</td><td>乱れ桜は春爛漫・Ⅲ</td><td class="rui">チャレンジ</td><td>リオレイア亜種</td><td class="mon">リオレイア亜種</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">チャレンジ</td><td class="loc">闘技場</td><td>中級チャレンジクエスト01</td><td class="rui">チャレンジ</td><td>リオレウス、ツィツィヤック</td><td class="mon">リオレウス ツィツィヤック</td><td class="zok">飛竜種 鳥竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">チャレンジ</td><td class="loc">特殊闘技場</td><td>中級チャレンジクエスト02</td><td class="rui">チャレンジ</td><td>オドガロン x2</td><td class="mon">オドガロン </td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">チャレンジ</td><td class="loc">闘技場</td><td>風漂惨爪討伐01</td><td class="rui">チャレンジ</td><td>オドガロン、レイギエナ</td><td class="mon">オドガロン レイギエナ</td><td class="zok">牙竜種 飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">チャレンジ</td><td class="loc">闘技場</td><td>風漂惨爪討伐02</td><td class="rui">チャレンジ</td><td>オドガロン、レイギエナ</td><td class="mon">オドガロン レイギエナ</td><td class="zok">牙竜種 飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">チャレンジ</td><td class="loc">闘技場</td><td>風漂惨爪討伐03</td><td class="rui">チャレンジ</td><td>オドガロン、レイギエナ</td><td class="mon">オドガロン レイギエナ</td><td class="zok">牙竜種 飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">チャレンジ</td><td class="loc">闘技場</td><td>恐暴竜討伐</td><td class="rui">チャレンジ</td><td>イビルジョー</td><td class="mon">イビルジョー</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">チャレンジ</td><td class="loc">古代樹の森</td><td>森に潜む者達</td><td class="rui">チャレンジ</td><td>ドスジャグラス、アンジャナフ、リオレウス</td><td class="mon">ドスジャグラス アンジャナフ リオレウス</td><td class="zok">牙竜種 獣竜種 飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">チャレンジ</td><td class="loc">闘技場</td><td>乱と律の果て</td><td class="rui">チャレンジ</td><td>バゼルギウス</td><td class="mon">バゼルギウス</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★7</td><td class="bet">特別・偵察</td><td class="loc">古代樹の森</td><td>食物連鎖の波に乗れ！</td><td class="rui">狩猟</td><td>イビルジョー</td><td class="mon">イビルジョー</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★8</td><td class="bet">任務</td><td class="loc">龍結晶の地</td><td>渇望の黒剣</td><td class="rui">討伐</td><td>ネルギガンテ</td><td class="mon">ネルギガンテ</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★8</td><td class="bet">任務</td><td class="loc">龍結晶の地</td><td>鋼鉄のクシャルダオラ</td><td class="rui">討伐</td><td>クシャルダオラ</td><td class="mon">クシャルダオラ</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★8</td><td class="bet">任務</td><td class="loc">龍結晶の地</td><td>爆炎のテオ・テスカトル</td><td class="rui">討伐</td><td>テオ・テスカトル</td><td class="mon">テオ・テスカトル</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★8</td><td class="bet">任務</td><td class="loc">瘴気の谷</td><td>冥底のヴァルハザク</td><td class="rui">討伐</td><td>ヴァルハザク</td><td class="mon">ヴァルハザク</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★8</td><td class="bet">フリー</td><td class="loc">陸珊瑚の台地</td><td>幻獣は斯く麗しき</td><td class="rui">討伐</td><td>キリン</td><td class="mon">キリン</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★8</td><td class="bet">フリー</td><td class="loc">瘴気の谷</td><td>墓標の底にて目覚むる</td><td class="rui">討伐</td><td>ヴァルハザク</td><td class="mon">ヴァルハザク</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★8</td><td class="bet">フリー</td><td class="loc">龍結晶の地</td><td>暴風の主</td><td class="rui">討伐</td><td>クシャルダオラ</td><td class="mon">クシャルダオラ</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★8</td><td class="bet">フリー</td><td class="loc">龍結晶の地</td><td>古を喰らうもの</td><td class="rui">討伐</td><td>ネルギガンテ</td><td class="mon">ネルギガンテ</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★8</td><td class="bet">フリー</td><td class="loc">龍結晶の地</td><td>颶風の疵は浅からぬ</td><td class="rui">討伐</td><td>クシャルダオラ</td><td class="mon">クシャルダオラ</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★8</td><td class="bet">フリー</td><td class="loc">龍結晶の地</td><td>業火の疵は浅からぬ</td><td class="rui">討伐</td><td>テオ・テスカトル</td><td class="mon">テオ・テスカトル</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★8</td><td class="bet">フリー</td><td class="loc">古代樹の森</td><td>胸をよぎる荒天の予感</td><td class="rui">討伐</td><td>クシャルダオラ</td><td class="mon">クシャルダオラ</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★8</td><td class="bet">フリー</td><td class="loc">龍結晶の地</td><td>獄炎の牙城</td><td class="rui">討伐</td><td>テオ・テスカトル</td><td class="mon">テオ・テスカトル</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★8</td><td class="bet">フリー</td><td class="loc">大蟻塚の荒地</td><td>熱砂の陽炎</td><td class="rui">討伐</td><td>テオ・テスカトル</td><td class="mon">テオ・テスカトル</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★8</td><td class="bet">フリー</td><td class="loc">龍結晶の地</td><td>青のプロミネンス</td><td class="rui">討伐</td><td>ナナ・テスカトリ</td><td class="mon">ナナ・テスカトリ</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★8</td><td class="bet">フリー</td><td class="loc">大蟻塚の荒地</td><td>炎王龍と炎妃龍</td><td class="rui">討伐</td><td>テオ・テスカトル、ナナ・テスカトリ</td><td class="mon">テオ・テスカトル ナナ・テスカトリ</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★8</td><td class="bet">イベント</td><td class="loc">闘技場</td><td>Code：Red</td><td class="rui">狩猟</td><td>アンジャナフ、オドガロン、リオレウス、テオ・テスカトル</td><td class="mon">アンジャナフ オドガロン リオレウス テオ・テスカトル</td><td class="zok">獣竜種 牙竜種 飛竜種 古龍種 </td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★8</td><td class="bet">イベント</td><td class="loc">特殊闘技場</td><td>軽やかで恐ろしく、そして熱く</td><td class="rui">狩猟</td><td>イビルジョー、オドガロン、ナナ・テスカトリ</td><td class="mon">イビルジョー オドガロン ナナ・テスカトリ</td><td class="zok">獣竜種 牙竜種 古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★8</td><td class="bet">闘技大会</td><td class="loc">特殊闘技場</td><td>闘技大会08</td><td class="rui">闘技</td><td>ラドバルキン、ウラガンキン</td><td class="mon">ラドバルキン ウラガンキン</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★8</td><td class="bet">闘技大会</td><td class="loc">特殊闘技場</td><td>闘技大会09</td><td class="rui">闘技</td><td>ディアブロス、ディアブロス亜種</td><td class="mon">ディアブロス ディアブロス亜種</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★8</td><td class="bet">チャレンジ</td><td class="loc">闘技場</td><td>殺意の波動に目覚めた龍・Ⅰ</td><td class="rui">チャレンジ</td><td>ネルギガンテ</td><td class="mon">ネルギガンテ</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★8</td><td class="bet">チャレンジ</td><td class="loc">闘技場</td><td>殺意の波動に目覚めた龍・Ⅱ</td><td class="rui">チャレンジ</td><td>ネルギガンテ</td><td class="mon">ネルギガンテ</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★8</td><td class="bet">チャレンジ</td><td class="loc">闘技場</td><td>殺意の波動に目覚めた龍・Ⅲ</td><td class="rui">チャレンジ</td><td>ネルギガンテ</td><td class="mon">ネルギガンテ</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★8</td><td class="bet">チャレンジ</td><td class="loc">闘技場</td><td>滅尽龍討伐01</td><td class="rui">チャレンジ</td><td>ネルギガンテ</td><td class="mon">ネルギガンテ</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★8</td><td class="bet">チャレンジ</td><td class="loc">闘技場</td><td>滅尽龍討伐02</td><td class="rui">チャレンジ</td><td>ネルギガンテ</td><td class="mon">ネルギガンテ</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★8</td><td class="bet">チャレンジ</td><td class="loc">特殊闘技場</td><td>滅尽龍討伐03</td><td class="rui">チャレンジ</td><td>ネルギガンテ</td><td class="mon">ネルギガンテ</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★8</td><td class="bet">チャレンジ</td><td class="loc">闘技場</td><td>滅尽龍討伐04</td><td class="rui">チャレンジ</td><td>ネルギガンテ</td><td class="mon">ネルギガンテ</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★8</td><td class="bet">チャレンジ</td><td class="loc">闘技場</td><td>頂に立つ者達</td><td class="rui">チャレンジ</td><td>テオ・テスカトル、クシャルダオラ、ネルギガンテ</td><td class="mon">テオ・テスカトル クシャルダオラ ネルギガンテ</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★8</td><td class="bet">チャレンジ</td><td class="loc">闘技場</td><td>狩人と青い妃</td><td class="rui">チャレンジ</td><td>ナナ・テスカトリ</td><td class="mon">ナナ・テスカトリ</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★8</td><td class="bet">特別・偵察</td><td class="loc">大蟻塚の荒地</td><td>烈日</td><td class="rui">討伐</td><td>テオ・テスカトル</td><td class="mon">テオ・テスカトル</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★8</td><td class="bet">特別・偵察</td><td class="loc">特殊闘技場</td><td>パンドラの闘技場</td><td class="rui">特殊</td><td>ナナ・テスカトリ</td><td class="mon">ナナ・テスカトリ</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★8</td><td class="bet">特別・偵察</td><td class="loc">龍結晶の地</td><td>平伏するより他に無し</td><td class="rui">討伐</td><td>テオ・テスカトル、ナナ・テスカトリ</td><td class="mon">テオ・テスカトル ナナ・テスカトリ</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★9</td><td class="bet">任務</td><td class="loc">地脈の収束地</td><td>収束の地</td><td class="rui">特殊</td><td>ゼノ・ジーヴァ</td><td class="mon">ゼノ・ジーヴァ</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★9</td><td class="bet">任務</td><td class="loc">大蟻塚の荒地</td><td>爆ぜる鱗を超えた道</td><td class="rui">狩猟</td><td>歴戦バゼルギウス x2</td><td class="mon">バゼルギウス </td><td class="zok">飛竜種</td><td class="jou">歴戦 </td></tr>
+                    <tr><td class="rank">★9</td><td class="bet">任務</td><td class="loc">陸珊瑚の台地</td><td>その雷鳴は天罰か、祝福か</td><td class="rui">討伐</td><td>歴戦キリン</td><td class="mon">キリン</td><td class="zok">古龍種</td><td class="jou">歴戦 </td></tr>
+                    <tr><td class="rank">★9</td><td class="bet">フリー</td><td class="loc">地脈の収束地</td><td>冥き河にて灯火掲げん</td><td class="rui">討伐</td><td>ゼノ・ジーヴァ</td><td class="mon">ゼノ・ジーヴァ</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★9</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>泥土と骨鎚の激突合戦！</td><td class="rui">狩猟</td><td>歴戦ボルボロス、歴戦ラドバルキン</td><td class="mon">ボルボロス ラドバルキン</td><td class="zok">獣竜種</td><td class="jou">歴戦 </td></tr>
+                    <tr><td class="rank">★9</td><td class="bet">フリー</td><td class="loc">瘴気の谷</td><td>奈落にて君を喚ぶ</td><td class="rui">狩猟</td><td>歴戦ヴァルハザク、歴戦オドガロン</td><td class="mon">ヴァルハザク オドガロン</td><td class="zok">古龍種 牙竜種</td><td class="jou">歴戦 </td></tr>
+                    <tr><td class="rank">★9</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>新大陸の空と花</td><td class="rui">狩猟</td><td>歴戦リオレウス亜種、歴戦リオレイア亜種</td><td class="mon">リオレウス亜種 リオレイア亜種</td><td class="zok">飛竜種</td><td class="jou">歴戦 </td></tr>
+                    <tr><td class="rank">★9</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>新大陸の白き風</td><td class="rui">狩猟</td><td>レイギエナ、オドガロン、ディアブロス、リオレウス</td><td class="mon">レイギエナ オドガロン ディアブロス リオレウス</td><td class="zok">飛竜種 牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★9</td><td class="bet">フリー</td><td class="loc">龍結晶の地</td><td>導きの青い星</td><td class="rui">討伐</td><td>歴戦クシャルダオラ、歴戦テオ・テスカトル、歴戦ネルギガンテ</td><td class="mon">クシャルダオラ テオ・テスカトル ネルギガンテ</td><td class="zok">古龍種</td><td class="jou">歴戦 </td></tr>
+                    <tr><td class="rank">★9</td><td class="bet">フリー</td><td class="loc">龍結晶の地</td><td>エオルゼアからの来訪者</td><td class="rui">討伐</td><td>ベヒーモス</td><td class="mon">ベヒーモス</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★9</td><td class="bet">イベント</td><td class="loc">古代樹の森</td><td>納品、ついでに痕跡</td><td class="rui">納品</td><td>-</td><td class="mon">無し</td><td class="zok">無し</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★9</td><td class="bet">イベント</td><td class="loc">龍結晶の地</td><td>納品、何はともあれ痕跡</td><td class="rui">納品</td><td>-</td><td class="mon">無し</td><td class="zok">無し</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★9</td><td class="bet">イベント</td><td class="loc">古代樹の森</td><td>依頼：森の精霊</td><td class="rui">討伐</td><td>エンシェント・レーシェン</td><td class="mon">エンシェント・レーシェン</td><td class="zok">遺存種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★9</td><td class="bet">イベント</td><td class="loc">龍結晶の地</td><td>極ベヒーモス討滅戦</td><td class="rui">討伐</td><td>ベヒーモス</td><td class="mon">ベヒーモス</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★9</td><td class="bet">イベント</td><td class="loc">地脈の収束地</td><td>冥き河のカロン</td><td class="rui">討伐</td><td>ゼノ・ジーヴァ</td><td class="mon">ゼノ・ジーヴァ</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★9</td><td class="bet">イベント</td><td class="loc">古代樹の森</td><td>窮賊、ハンターを噛む！</td><td class="rui">狩猟</td><td>ドスジャグラス</td><td class="mon">ドスジャグラス</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★9</td><td class="bet">イベント</td><td class="loc">龍結晶の地</td><td>我が名はヴォルガノス</td><td class="rui">狩猟</td><td>歴戦ヴォルガノス</td><td class="mon">ヴォルガノス</td><td class="zok">魚竜種</td><td class="jou">歴戦 </td></tr>
+                    <tr><td class="rank">★9</td><td class="bet">イベント</td><td class="loc">龍結晶の地</td><td>脈打て、本能</td><td class="rui">狩猟</td><td>歴戦イビルジョー</td><td class="mon">イビルジョー</td><td class="zok">獣竜種</td><td class="jou">歴戦 </td></tr>
+                    <tr><td class="rank">★9</td><td class="bet">イベント</td><td class="loc">古代樹の森</td><td>ノラの深奥</td><td class="rui">狩猟</td><td>歴戦イビルジョー x2</td><td class="mon">イビルジョー </td><td class="zok">獣竜種</td><td class="jou">歴戦 </td></tr>
+                    <tr><td class="rank">★9</td><td class="bet">イベント</td><td class="loc">龍結晶の地</td><td>秩序なき者に明日は無い</td><td class="rui">狩猟</td><td>歴戦バゼルギウス</td><td class="mon">バゼルギウス</td><td class="zok">飛竜種</td><td class="jou">歴戦 </td></tr>
+                    <tr><td class="rank">★9</td><td class="bet">イベント</td><td class="loc">陸珊瑚の台地</td><td>丘の上の雪見桜</td><td class="rui">狩猟</td><td>歴戦リオレイア亜種、歴戦レイギエナ</td><td class="mon">リオレイア亜種 レイギエナ</td><td class="zok">飛竜種</td><td class="jou">歴戦 </td></tr>
+                    <tr><td class="rank">★9</td><td class="bet">イベント</td><td class="loc">古代樹の森</td><td>調査(蛮顎竜、蒼火竜)</td><td class="rui">狩猟</td><td>歴戦アンジャナフ、歴戦リオレウス亜種</td><td class="mon">アンジャナフ リオレウス亜種</td><td class="zok">獣竜種 飛竜種</td><td class="jou">歴戦 </td></tr>
+                    <tr><td class="rank">★9</td><td class="bet">イベント</td><td class="loc">龍結晶の地</td><td>誰が玉座に牙を剥く？</td><td class="rui">討伐</td><td>歴戦ネルギガンテ、歴戦ナナ・テスカトリ、歴戦テオ・テスカトル</td><td class="mon">ネルギガンテ ナナ・テスカトリ テオ・テスカトル</td><td class="zok">古龍種</td><td class="jou">歴戦 </td></tr>
+                    <tr><td class="rank">★9</td><td class="bet">イベント</td><td class="loc">陸珊瑚の台地</td><td>まだ見ぬ白き鬣も</td><td class="rui">討伐</td><td>歴戦王キリン</td><td class="mon">キリン</td><td class="zok">古龍種</td><td class="jou">歴戦 歴戦王</td></tr>
+                    <tr><td class="rank">★9</td><td class="bet">イベント</td><td class="loc">地脈回廊</td><td>不滅のアルペングリューエン</td><td class="rui">特殊</td><td>歴戦王ゾラ・マグダラオス</td><td class="mon">ゾラ・マグダラオス</td><td class="zok">古龍種</td><td class="jou">歴戦 歴戦王</td></tr>
+                    <tr><td class="rank">★9</td><td class="bet">イベント</td><td class="loc">地脈の収束地</td><td>それは古龍の王たらん</td><td class="rui">討伐</td><td>歴戦王ゼノ・ジーヴァ</td><td class="mon">ゼノ・ジーヴァ</td><td class="zok">古龍種</td><td class="jou">歴戦 歴戦王</td></tr>
+                    <tr><td class="rank">★9</td><td class="bet">イベント</td><td class="loc">瘴気の谷</td><td>静寂の帳</td><td class="rui">討伐</td><td>歴戦王ヴァルハザク</td><td class="mon">ヴァルハザク</td><td class="zok">古龍種</td><td class="jou">歴戦 歴戦王</td></tr>
+                    <tr><td class="rank">★9</td><td class="bet">イベント</td><td class="loc">龍結晶の地</td><td>嵐のさなかにて</td><td class="rui">討伐</td><td>歴戦王クシャルダオラ</td><td class="mon">クシャルダオラ</td><td class="zok">古龍種</td><td class="jou">歴戦 歴戦王</td></tr>
+                    <tr><td class="rank">★9</td><td class="bet">イベント</td><td class="loc">龍結晶の地</td><td>太陽が燃え盛る時</td><td class="rui">討伐</td><td>歴戦王テオ・テスカトル</td><td class="mon">テオ・テスカトル</td><td class="zok">古龍種</td><td class="jou">歴戦 歴戦王</td></tr>
+                    <tr><td class="rank">★9</td><td class="bet">イベント</td><td class="loc">龍結晶の地</td><td>青は愛より出でて愛より熱し</td><td class="rui">討伐</td><td>歴戦王ナナ・テスカトリ</td><td class="mon">ナナ・テスカトリ</td><td class="zok">古龍種</td><td class="jou">歴戦 歴戦王</td></tr>
+                    <tr><td class="rank">★9</td><td class="bet">イベント</td><td class="loc">龍結晶の地</td><td>破滅が来たりて喇叭を鳴らす</td><td class="rui">討伐</td><td>歴戦王ネルギガンテ</td><td class="mon">ネルギガンテ</td><td class="zok">古龍種</td><td class="jou">歴戦 歴戦王</td></tr>
+                    <tr><td class="rank">★9</td><td class="bet">チャレンジ</td><td class="loc">闘技場</td><td>上級チャレンジクエスト01</td><td class="rui">チャレンジ</td><td>歴戦バゼルギウス、歴戦ウラガンキン</td><td class="mon">バゼルギウス ウラガンキン</td><td class="zok">飛竜種 獣竜種</td><td class="jou">歴戦 </td></tr>
+                    <tr><td class="rank">★9</td><td class="bet">チャレンジ</td><td class="loc">特殊闘技場</td><td>上級チャレンジクエスト02</td><td class="rui">チャレンジ</td><td>ネルギガンテ</td><td class="mon">ネルギガンテ</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★9</td><td class="bet">特別・偵察</td><td class="loc">龍結晶の地</td><td>伝説の魔獣</td><td class="rui">特殊</td><td>ベヒーモス</td><td class="mon">ベヒーモス</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★9</td><td class="bet">特別・偵察</td><td class="loc">龍結晶の地</td><td>手負いの魔獣「ベヒーモス」</td><td class="rui">討伐</td><td>ベヒーモス</td><td class="mon">ベヒーモス</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★9</td><td class="bet">特別・偵察</td><td class="loc">地脈の黄金郷</td><td>地母神の豪奢なる宴</td><td class="rui">特殊</td><td>マム・タロト</td><td class="mon">マム・タロト</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★9</td><td class="bet">特別・偵察</td><td class="loc">地脈の黄金郷</td><td>狂乱のエルドラド</td><td class="rui">特殊</td><td>歴戦王マム・タロト</td><td class="mon">マム・タロト</td><td class="zok">古龍種</td><td class="jou">歴戦 歴戦王</td></tr>
+                    <tr><td class="rank">★9</td><td class="bet">特別・偵察</td><td class="loc">古代樹の森</td><td>依頼：古代樹の森の異変調査</td><td class="rui">特殊</td><td>レーシェン</td><td class="mon">レーシェン</td><td class="zok">遺存種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M1</td><td class="bet">任務</td><td class="loc">渡りの凍て地</td><td>はじまりの洗礼！？</td><td class="rui">狩猟</td><td>ブラントドス</td><td class="mon">ブラントドス</td><td class="zok">魚竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M1</td><td class="bet">任務</td><td class="loc">渡りの凍て地</td><td>力仕事はバフバロにお任せ</td><td class="rui">狩猟</td><td>バフバロ</td><td class="mon">バフバロ</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M1</td><td class="bet">フリー</td><td class="loc">渡りの凍て地</td><td>深雪のダイバー</td><td class="rui">狩猟</td><td>ブラントドス</td><td class="mon">ブラントドス</td><td class="zok">魚竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M1</td><td class="bet">フリー</td><td class="loc">渡りの凍て地</td><td>猛り牛もハンター次第！？</td><td class="rui">狩猟</td><td>バフバロ</td><td class="mon">バフバロ</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M1</td><td class="bet">フリー</td><td class="loc">渡りの凍て地</td><td>捕獲：雪の下にも三年</td><td class="rui">捕獲</td><td>ブラントドス</td><td class="mon">ブラントドス</td><td class="zok">魚竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M1</td><td class="bet">フリー</td><td class="loc">渡りの凍て地</td><td>氷樹の陰から輝く目</td><td class="rui">討伐</td><td>ウルグ x10</td><td class="mon">ウルグ </td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M1</td><td class="bet">フリー</td><td class="loc">渡りの凍て地</td><td>冷たい場所からこんにちは</td><td class="rui">納品</td><td>-</td><td class="mon">無し</td><td class="zok">無し</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M1</td><td class="bet">フリー</td><td class="loc">古代樹の森</td><td>帰ってきたドスジャグラス</td><td class="rui">狩猟</td><td>ドスジャグラス</td><td class="mon">ドスジャグラス</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M1</td><td class="bet">フリー</td><td class="loc">古代樹の森</td><td>さすらいのコレクター、参上</td><td class="rui">狩猟</td><td>クルルヤック</td><td class="mon">クルルヤック</td><td class="zok">鳥竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M1</td><td class="bet">フリー</td><td class="loc">古代樹の森</td><td>長い舌のファニーフェイス</td><td class="rui">狩猟</td><td>プケプケ</td><td class="mon">プケプケ</td><td class="zok">鳥竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M1</td><td class="bet">フリー</td><td class="loc">古代樹の森</td><td>飛電、矢の如し</td><td class="rui">狩猟</td><td>トビカガチ</td><td class="mon">トビカガチ</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M1</td><td class="bet">フリー</td><td class="loc">古代樹の森</td><td>捕獲：猛角は木々を払う玉箒</td><td class="rui">捕獲</td><td>バフバロ</td><td class="mon">バフバロ</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M1</td><td class="bet">フリー</td><td class="loc">大蟻塚の荒地</td><td>荒地のトレジャーハンター</td><td class="rui">狩猟</td><td>クルルヤック</td><td class="mon">クルルヤック</td><td class="zok">鳥竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M1</td><td class="bet">フリー</td><td class="loc">大蟻塚の荒地</td><td>毒妖鳥の食べ歩きツアー？</td><td class="rui">狩猟</td><td>プケプケ</td><td class="mon">プケプケ</td><td class="zok">鳥竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M1</td><td class="bet">フリー</td><td class="loc">大蟻塚の荒地</td><td>座右の銘は猪突猛進です</td><td class="rui">狩猟</td><td>ボルボロス</td><td class="mon">ボルボロス</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M1</td><td class="bet">フリー</td><td class="loc">大蟻塚の荒地</td><td>君と僕のぬかるみマーチ</td><td class="rui">狩猟</td><td>ジュラトドス</td><td class="mon">ジュラトドス</td><td class="zok">魚竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M1</td><td class="bet">フリー</td><td class="loc">陸珊瑚の台地</td><td>ツィツィヤック☆フラッシュ！</td><td class="rui">狩猟</td><td>ツィツィヤック</td><td class="mon">ツィツィヤック</td><td class="zok">鳥竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M1</td><td class="bet">フリー</td><td class="loc">瘴気の谷</td><td>俺たちのゴッドファーザー</td><td class="rui">狩猟</td><td>ドスギルオス</td><td class="mon">ドスギルオス</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M1</td><td class="bet">フリー</td><td class="loc">龍結晶の地</td><td>今日のディナーは龍結晶</td><td class="rui">狩猟</td><td>ドドガマル</td><td class="mon">ドドガマル</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M1</td><td class="bet">フリー</td><td class="loc">龍結晶の地</td><td>ビッグホーン・クラッシャー</td><td class="rui">狩猟</td><td>歴戦バフバロ</td><td class="mon">バフバロ</td><td class="zok">獣竜種</td><td class="jou">歴戦 </td></tr>
+                    <tr><td class="rank">★M1</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：毒妖鳥マスター編</td><td class="rui">狩猟</td><td>プケプケ</td><td class="mon">プケプケ</td><td class="zok">鳥竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M1</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：土砂竜マスター編</td><td class="rui">狩猟</td><td>ボルボロス</td><td class="mon">ボルボロス</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M1</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：飛雷竜マスター編</td><td class="rui">狩猟</td><td>トビカガチ</td><td class="mon">トビカガチ</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M1</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：猛牛竜マスター編</td><td class="rui">狩猟</td><td>バフバロ</td><td class="mon">バフバロ</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M1</td><td class="bet">イベント</td><td class="loc">渡りの凍て地</td><td>ギンセンザルをつかまえた！</td><td class="rui">納品</td><td>-</td><td class="mon">無し</td><td class="zok">無し</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M1</td><td class="bet">イベント</td><td class="loc">渡りの凍て地</td><td>この魚は、食用に向かない</td><td class="rui">狩猟</td><td>ブラントドス x2</td><td class="mon">ブラントドス </td><td class="zok">魚竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M1</td><td class="bet">イベント</td><td class="loc">大蟻塚の荒地</td><td>乾地に実る宝石</td><td class="rui">納品</td><td>-</td><td class="mon">無し</td><td class="zok">無し</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M1</td><td class="bet">イベント</td><td class="loc">瘴気の谷</td><td>地下の主が呼んでいる…</td><td class="rui">納品</td><td>-</td><td class="mon">無し</td><td class="zok">無し</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M1</td><td class="bet">イベント</td><td class="loc">大蟻塚の荒地</td><td>泥濘に拘泥する猛牛達</td><td class="rui">狩猟</td><td>バフバロ x2</td><td class="mon">バフバロ </td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M1</td><td class="bet">イベント</td><td class="loc">陸珊瑚の台地</td><td>空に向かって狙い撃ち！</td><td class="rui">納品</td><td>-</td><td class="mon">無し</td><td class="zok">無し</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M1</td><td class="bet">イベント</td><td class="loc">大蟻塚の荒地</td><td>その魚のキレアジはいかが？</td><td class="rui">納品</td><td>-</td><td class="mon">無し</td><td class="zok">無し</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M1</td><td class="bet">イベント</td><td class="loc">陸珊瑚の台地</td><td>ライトパールはつぶらな瞳</td><td class="rui">納品</td><td>-</td><td class="mon">無し</td><td class="zok">無し</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M1</td><td class="bet">イベント</td><td class="loc">大蟻塚の荒地</td><td>TheNewWorld新世界にて</td><td class="rui">特殊</td><td>ディアブロス亜種</td><td class="mon">ディアブロス亜種</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M1</td><td class="bet">イベント</td><td class="loc">古代樹の森</td><td>OurWorld私達の世界へ</td><td class="rui">特殊</td><td>リオレウス</td><td class="mon">リオレウス</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M1</td><td class="bet">闘技大会</td><td class="loc">闘技場</td><td>闘技大会01</td><td class="rui">闘技</td><td>バフバロ</td><td class="mon">バフバロ</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M2</td><td class="bet">任務</td><td class="loc">渡りの凍て地</td><td>氷土の番人・トビカガチ亜種</td><td class="rui">狩猟</td><td>トビカガチ亜種</td><td class="mon">トビカガチ亜種</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M2</td><td class="bet">任務</td><td class="loc">大蟻塚の荒地</td><td>ねむりの飛竜とよっつの目玉</td><td class="rui">狩猟</td><td>パオウルムー亜種</td><td class="mon">パオウルムー亜種</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M2</td><td class="bet">任務</td><td class="loc">陸珊瑚の台地</td><td>水飲ミ場ヲ占拠セヨ！</td><td class="rui">狩猟</td><td>プケプケ亜種</td><td class="mon">プケプケ亜種</td><td class="zok">鳥竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M2</td><td class="bet">フリー</td><td class="loc">渡りの凍て地</td><td>トビカガチ亜種の狩猟</td><td class="rui">狩猟</td><td>トビカガチ亜種</td><td class="mon">トビカガチ亜種</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M2</td><td class="bet">フリー</td><td class="loc">渡りの凍て地</td><td>捕獲：毒と麻痺の番</td><td class="rui">捕獲</td><td>トビカガチ亜種</td><td class="mon">トビカガチ亜種</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M2</td><td class="bet">フリー</td><td class="loc">渡りの凍て地</td><td>ボワ！ボワボワボワ！</td><td class="rui">討伐</td><td>ボワボワ x14</td><td class="mon">ボワボワ </td><td class="zok">獣人種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M2</td><td class="bet">フリー</td><td class="loc">渡りの凍て地</td><td>ワレラとキミラの共同戦線</td><td class="rui">狩猟</td><td>歴戦ブラントドス</td><td class="mon">ブラントドス</td><td class="zok">魚竜種</td><td class="jou">歴戦 </td></tr>
+                    <tr><td class="rank">★M2</td><td class="bet">フリー</td><td class="loc">渡りの凍て地</td><td>魚心あれば氷心</td><td class="rui">狩猟</td><td>歴戦ブラントドス</td><td class="mon">ブラントドス</td><td class="zok">魚竜種</td><td class="jou">歴戦 </td></tr>
+                    <tr><td class="rank">★M2</td><td class="bet">フリー</td><td class="loc">古代樹の森</td><td>森の暴れん坊、再来</td><td class="rui">狩猟</td><td>アンジャナフ</td><td class="mon">アンジャナフ</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M2</td><td class="bet">フリー</td><td class="loc">古代樹の森</td><td>陸の女王・リオレイアの溜息</td><td class="rui">狩猟</td><td>リオレイア</td><td class="mon">リオレイア</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M2</td><td class="bet">フリー</td><td class="loc">古代樹の森</td><td>捕獲：おやすみパオウルムー</td><td class="rui">捕獲</td><td>パオウルムー亜種</td><td class="mon">パオウルムー亜種</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M2</td><td class="bet">フリー</td><td class="loc">大蟻塚の荒地</td><td>暴れん坊、荒地ですごく暴れる</td><td class="rui">狩猟</td><td>アンジャナフ</td><td class="mon">アンジャナフ</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M2</td><td class="bet">フリー</td><td class="loc">大蟻塚の荒地</td><td>女王様の優雅な一日</td><td class="rui">狩猟</td><td>リオレイア</td><td class="mon">リオレイア</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M2</td><td class="bet">フリー</td><td class="loc">大蟻塚の荒地</td><td>パオウルムー亜種の狩猟</td><td class="rui">狩猟</td><td>パオウルムー亜種</td><td class="mon">パオウルムー亜種</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M2</td><td class="bet">フリー</td><td class="loc">大蟻塚の荒地</td><td>華やかなりしクイーンズ</td><td class="rui">狩猟</td><td>リオレイア、リオレイア亜種</td><td class="mon">リオレイア リオレイア亜種</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M2</td><td class="bet">フリー</td><td class="loc">陸珊瑚の台地</td><td>はばたけ、パオウルムー！</td><td class="rui">狩猟</td><td>パオウルムー</td><td class="mon">パオウルムー</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M2</td><td class="bet">フリー</td><td class="loc">陸珊瑚の台地</td><td>珊瑚の陸に春来たる</td><td class="rui">狩猟</td><td>リオレイア亜種</td><td class="mon">リオレイア亜種</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M2</td><td class="bet">フリー</td><td class="loc">陸珊瑚の台地</td><td>水分補給は大事です！</td><td class="rui">狩猟</td><td>プケプケ亜種</td><td class="mon">プケプケ亜種</td><td class="zok">鳥竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M2</td><td class="bet">フリー</td><td class="loc">瘴気の谷</td><td>ラドバルキンの狩猟</td><td class="rui">狩猟</td><td>ラドバルキン</td><td class="mon">ラドバルキン</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M2</td><td class="bet">フリー</td><td class="loc">瘴気の谷</td><td>虫？虫！？虫！！！</td><td class="rui">討伐</td><td>ランゴスタ x15、カンタロス x20</td><td class="mon">ランゴスタ </td><td class="zok">甲虫種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M2</td><td class="bet">フリー</td><td class="loc">龍結晶の地</td><td>太古の輝きを求めて</td><td class="rui">納品</td><td>-</td><td class="mon">無し</td><td class="zok">無し</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M2</td><td class="bet">フリー</td><td class="loc">陸珊瑚の台地</td><td>飲みすぎ注意報！</td><td class="rui">狩猟</td><td>歴戦プケプケ亜種</td><td class="mon">プケプケ亜種</td><td class="zok">鳥竜種</td><td class="jou">歴戦 </td></tr>
+                    <tr><td class="rank">★M2</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：蛮顎竜マスター編</td><td class="rui">狩猟</td><td>アンジャナフ</td><td class="mon">アンジャナフ</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M2</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：骨鎚竜マスター編</td><td class="rui">狩猟</td><td>ラドバルキン</td><td class="mon">ラドバルキン</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M2</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：水妖竜マスター編</td><td class="rui">狩猟</td><td>プケプケ亜種</td><td class="mon">プケプケ亜種</td><td class="zok">鳥竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M2</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：飛毒竜マスター編</td><td class="rui">狩猟</td><td>トビカガチ亜種</td><td class="mon">トビカガチ亜種</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M2</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：雌火竜マスター編</td><td class="rui">狩猟</td><td>リオレイア</td><td class="mon">リオレイア</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M2</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：桜火竜マスター編</td><td class="rui">狩猟</td><td>リオレイア亜種</td><td class="mon">リオレイア亜種</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M2</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：浮空竜マスター編</td><td class="rui">狩猟</td><td>パオウルムー</td><td class="mon">パオウルムー</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M2</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：浮眠竜マスター編</td><td class="rui">狩猟</td><td>パオウルムー亜種</td><td class="mon">パオウルムー亜種</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M2</td><td class="bet">イベント</td><td class="loc">古代樹の森</td><td>暴れん坊はどっち！？</td><td class="rui">狩猟</td><td>アンジャナフ、バフバロ</td><td class="mon">アンジャナフ バフバロ</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M2</td><td class="bet">イベント</td><td class="loc">特殊闘技場</td><td>カラ・カラ・カラ・カラフル</td><td class="rui">狩猟</td><td>クルルヤック、ツィツィヤック、プケプケ、プケプケ亜種</td><td class="mon">クルルヤック ツィツィヤック プケプケ プケプケ亜種</td><td class="zok">鳥竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M2</td><td class="bet">イベント</td><td class="loc">特殊闘技場</td><td>巨大風船×巨大風船</td><td class="rui">狩猟</td><td>パオウルムー、パオウルムー亜種</td><td class="mon">パオウルムー パオウルムー亜種</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M2</td><td class="bet">イベント</td><td class="loc">特殊闘技場</td><td>眠りと麻痺のコンビネーション</td><td class="rui">狩猟</td><td>ラドバルキン、トビカガチ亜種</td><td class="mon">ラドバルキン トビカガチ亜種</td><td class="zok">獣竜種 牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M2</td><td class="bet">イベント</td><td class="loc">陸珊瑚の台地</td><td>ハンター達の永い夢Ⅱ</td><td class="rui">捕獲</td><td>プケプケ亜種</td><td class="mon">プケプケ亜種</td><td class="zok">鳥竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M2</td><td class="bet">イベント</td><td class="loc">渡りの凍て地</td><td>キブクレペンギンつかまえた！</td><td class="rui">納品</td><td>-</td><td class="mon">無し</td><td class="zok">無し</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M2</td><td class="bet">イベント</td><td class="loc">闘技場</td><td>ねむれよいこもわるいこも</td><td class="rui">狩猟</td><td>パオウルムー亜種</td><td class="mon">パオウルムー亜種</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M2</td><td class="bet">イベント</td><td class="loc">渡りの凍て地</td><td>その艶姿、凍傷に注意</td><td class="rui">納品</td><td>-</td><td class="mon">無し</td><td class="zok">無し</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M2</td><td class="bet">イベント</td><td class="loc">古代樹の森</td><td>女王の食卓</td><td class="rui">狩猟</td><td>リオレイア</td><td class="mon">リオレイア</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M2</td><td class="bet">イベント</td><td class="loc">闘技場</td><td>カガチコカガチデカカガチ</td><td class="rui">狩猟</td><td>トビカガチ、トビカガチ亜種</td><td class="mon">トビカガチ トビカガチ亜種</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M2</td><td class="bet">闘技大会</td><td class="loc">闘技場</td><td>闘技大会02</td><td class="rui">闘技</td><td>パオウルムー亜種</td><td class="mon">パオウルムー亜種</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M2</td><td class="bet">チャレンジ</td><td class="loc">特殊闘技場</td><td>中級チャレンジクエスト01</td><td class="rui">チャレンジ</td><td>トビカガチ、トビカガチ亜種</td><td class="mon">トビカガチ トビカガチ亜種</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">任務</td><td class="loc">渡りの凍て地</td><td>凍てつく国の白い騎士</td><td class="rui">狩猟</td><td>ベリオロス</td><td class="mon">ベリオロス</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">任務</td><td class="loc">古代樹の森</td><td>絶影</td><td class="rui">狩猟</td><td>ナルガクルガ</td><td class="mon">ナルガクルガ</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">任務</td><td class="loc">大蟻塚の荒地</td><td>灼熱の刃、ディノバルド！</td><td class="rui">狩猟</td><td>ディノバルド</td><td class="mon">ディノバルド</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">任務</td><td class="loc">瘴気の谷</td><td>絶対強者</td><td class="rui">狩猟</td><td>ティガレックス</td><td class="mon">ティガレックス</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">任務</td><td class="loc">龍結晶の地</td><td>粉砕のクロスカウンター</td><td class="rui">狩猟</td><td>ブラキディオス</td><td class="mon">ブラキディオス</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">任務</td><td class="loc">龍結晶の地</td><td>氷と炎のはざまより</td><td class="rui">特殊</td><td>イヴェルカーナ</td><td class="mon">イヴェルカーナ</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">フリー</td><td class="loc">渡りの凍て地</td><td>氷牙竜・ベリオロス！</td><td class="rui">狩猟</td><td>ベリオロス</td><td class="mon">ベリオロス</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">フリー</td><td class="loc">渡りの凍て地</td><td>捕獲：ニャイスルーム！石編</td><td class="rui">捕獲</td><td>ティガレックス</td><td class="mon">ティガレックス</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">フリー</td><td class="loc">古代樹の森</td><td>空の王は君臨すれども…</td><td class="rui">狩猟</td><td>リオレウス</td><td class="mon">リオレウス</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">フリー</td><td class="loc">古代樹の森</td><td>疾風の迅竜</td><td class="rui">狩猟</td><td>ナルガクルガ</td><td class="mon">ナルガクルガ</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">フリー</td><td class="loc">古代樹の森</td><td>一刀両断の極意</td><td class="rui">狩猟</td><td>ディノバルド</td><td class="mon">ディノバルド</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">フリー</td><td class="loc">古代樹の森</td><td>切り札は赤と黒</td><td class="rui">狩猟</td><td>リオレウス、ナルガクルガ</td><td class="mon">リオレウス ナルガクルガ</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">フリー</td><td class="loc">大蟻塚の荒地</td><td>死闘！角竜ディアプロス</td><td class="rui">狩猟</td><td>ディアブロス</td><td class="mon">ディアブロス</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">フリー</td><td class="loc">大蟻塚の荒地</td><td>赫灼の一閃</td><td class="rui">狩猟</td><td>ディノバルド</td><td class="mon">ディノバルド</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">フリー</td><td class="loc">大蟻塚の荒地</td><td>料理の決め手は刃物と火加減</td><td class="rui">狩猟</td><td>ディノバルド、リオレイア</td><td class="mon">ディノバルド リオレイア</td><td class="zok">獣竜種 飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">フリー</td><td class="loc">陸珊瑚の台地</td><td>天空舞踏会へようこそ</td><td class="rui">狩猟</td><td>レイギエナ</td><td class="mon">レイギエナ</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">フリー</td><td class="loc">陸珊瑚の台地</td><td>闇風</td><td class="rui">狩猟</td><td>ナルガクルガ</td><td class="mon">ナルガクルガ</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">フリー</td><td class="loc">瘴気の谷</td><td>オニュクス、それは惨劇</td><td class="rui">狩猟</td><td>オドガロン</td><td class="mon">オドガロン</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">フリー</td><td class="loc">瘴気の谷</td><td>谷に轟く咆哮</td><td class="rui">狩猟</td><td>ティガレックス</td><td class="mon">ティガレックス</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">フリー</td><td class="loc">瘴気の谷</td><td>暴走、爆転、大競争！</td><td class="rui">狩猟</td><td>ティガレックス、ラドバルキン</td><td class="mon">ティガレックス ラドバルキン</td><td class="zok">飛竜種 獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">フリー</td><td class="loc">龍結晶の地</td><td>溶岩竜は熱いうちに打て</td><td class="rui">狩猟</td><td>ヴォルガノス</td><td class="mon">ヴォルガノス</td><td class="zok">魚竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">フリー</td><td class="loc">龍結晶の地</td><td>回転と言えば爆槌</td><td class="rui">狩猟</td><td>ウラガンキン</td><td class="mon">ウラガンキン</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">フリー</td><td class="loc">龍結晶の地</td><td>爆砕警報、発令中</td><td class="rui">狩猟</td><td>ブラキディオス</td><td class="mon">ブラキディオス</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">フリー</td><td class="loc">龍結晶の地</td><td>捕獲：粘菌に秘訣あり！？</td><td class="rui">捕獲</td><td>ブラキディオス</td><td class="mon">ブラキディオス</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">フリー</td><td class="loc">龍結晶の地</td><td>爆発粉砕フェスティバル！</td><td class="rui">狩猟</td><td>ブラキディオス、ウラガンキン</td><td class="mon">ブラキディオス ウラガンキン</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">フリー</td><td class="loc">渡りの凍て地</td><td>孤高の白騎士</td><td class="rui">狩猟</td><td>歴戦ベリオロス</td><td class="mon">ベリオロス</td><td class="zok">飛竜種</td><td class="jou">歴戦 </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">フリー</td><td class="loc">陸珊瑚の台地</td><td>凄惨の刻、来たる</td><td class="rui">狩猟</td><td>歴戦オドガロン</td><td class="mon">オドガロン</td><td class="zok">牙竜種</td><td class="jou">歴戦 </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：風漂竜マスター編</td><td class="rui">狩猟</td><td>レイギエナ</td><td class="mon">レイギエナ</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：惨爪竜マスター編</td><td class="rui">狩猟</td><td>オドガロン</td><td class="mon">オドガロン</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：爆鎚竜マスター編</td><td class="rui">狩猟</td><td>ウラガンキン</td><td class="mon">ウラガンキン</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：火竜マスター編</td><td class="rui">狩猟</td><td>リオレウス</td><td class="mon">リオレウス</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：角竜マスター編</td><td class="rui">狩猟</td><td>ディアブロス</td><td class="mon">ディアブロス</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：氷牙竜マスター編</td><td class="rui">狩猟</td><td>ベリオロス</td><td class="mon">ベリオロス</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：迅竜マスター編</td><td class="rui">狩猟</td><td>ナルガクルガ</td><td class="mon">ナルガクルガ</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：斬竜マスター編</td><td class="rui">狩猟</td><td>ディノバルド</td><td class="mon">ディノバルド</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：砕竜マスター編</td><td class="rui">狩猟</td><td>ブラキディオス</td><td class="mon">ブラキディオス</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：轟竜マスター編</td><td class="rui">狩猟</td><td>ティガレックス</td><td class="mon">ティガレックス</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">イベント</td><td class="loc">龍結晶の地</td><td>空を焼く王、火を泳ぐ賢者</td><td class="rui">狩猟</td><td>リオレウス、ヴォルガノス</td><td class="mon">リオレウス ヴォルガノス</td><td class="zok">飛竜種 魚竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">イベント</td><td class="loc">龍結晶の地</td><td>燃え上がれ獣竜種！！！！</td><td class="rui">狩猟</td><td>ディノバルド、ウラガンキン</td><td class="mon">ディノバルド ウラガンキン</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">イベント</td><td class="loc">大蟻塚の荒地</td><td>荒地の気になる出来事</td><td class="rui">狩猟</td><td>ディアブロス、パオウルムー亜種</td><td class="mon">ディアブロス パオウルムー亜種</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">イベント</td><td class="loc">陸珊瑚の台地</td><td>水と冷気がお待ちかね</td><td class="rui">狩猟</td><td>プケプケ亜種、レイギエナ</td><td class="mon">プケプケ亜種 レイギエナ</td><td class="zok">鳥竜種 飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">イベント</td><td class="loc">闘技場</td><td>ハンター達の永い夢Ⅲ</td><td class="rui">狩猟</td><td>パオウルムー亜種、ナルガクルガ</td><td class="mon">パオウルムー亜種 ナルガクルガ</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">イベント</td><td class="loc">闘技場</td><td>闘技場からの白いラブレター</td><td class="rui">狩猟</td><td>ベリオロス</td><td class="mon">ベリオロス</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">イベント</td><td class="loc">闘技場</td><td>轟と迅の熱き邂逅</td><td class="rui">狩猟</td><td>ティガレックス、ナルガクルガ</td><td class="mon">ティガレックス ナルガクルガ</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">イベント</td><td class="loc">闘技場</td><td>幻の轟竜？？？</td><td class="rui">狩猟</td><td>ティガレックス</td><td class="mon">ティガレックス</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">闘技大会</td><td class="loc">闘技場</td><td>闘技大会03</td><td class="rui">闘技</td><td>ナルガクルガ</td><td class="mon">ナルガクルガ</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M3</td><td class="bet">チャレンジ</td><td class="loc">闘技場</td><td>真の強者</td><td class="rui">チャレンジ</td><td>ティガレックス</td><td class="mon">ティガレックス</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M4</td><td class="bet">任務</td><td class="loc">渡りの凍て地</td><td>刹那の白霧</td><td class="rui">狩猟</td><td>凍て刺すレイギエナ</td><td class="mon">凍て刺すレイギエナ</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M4</td><td class="bet">任務</td><td class="loc">渡りの凍て地</td><td>暴れん坊大将狩猟大作戦！</td><td class="rui">狩猟</td><td>アンジャナフ亜種</td><td class="mon">アンジャナフ亜種</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M4</td><td class="bet">任務</td><td class="loc">瘴気の谷</td><td>腐食の刃・ディノバルド亜種</td><td class="rui">狩猟</td><td>ディノバルド亜種</td><td class="mon">ディノバルド亜種</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M4</td><td class="bet">任務</td><td class="loc">陸珊瑚の台地</td><td>兇終隙末・オドガロン亜種</td><td class="rui">狩猟</td><td>オドガロン亜種</td><td class="mon">オドガロン亜種</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M4</td><td class="bet">任務</td><td class="loc">兵器置き場</td><td>セリエナ防衛戦</td><td class="rui">特殊</td><td>イヴェルカーナ</td><td class="mon">イヴェルカーナ</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M4</td><td class="bet">フリー</td><td class="loc">渡りの凍て地</td><td>風霜高潔のハンター</td><td class="rui">狩猟</td><td>凍て刺すレイギエナ</td><td class="mon">凍て刺すレイギエナ</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M4</td><td class="bet">フリー</td><td class="loc">渡りの凍て地</td><td>暴れん坊、寒さもへっちゃら</td><td class="rui">狩猟</td><td>アンジャナフ亜種</td><td class="mon">アンジャナフ亜種</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M4</td><td class="bet">フリー</td><td class="loc">渡りの凍て地</td><td>舞踏家たちのドゥエート</td><td class="rui">狩猟</td><td>凍て刺すレイギエナ、レイギエナ</td><td class="mon">凍て刺すレイギエナ レイギエナ</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M4</td><td class="bet">フリー</td><td class="loc">渡りの凍て地</td><td>とっておきは湯けむりの中に</td><td class="rui">納品</td><td>-</td><td class="mon">無し</td><td class="zok">無し</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M4</td><td class="bet">フリー</td><td class="loc">古代樹の森</td><td>天蒼恢恢！</td><td class="rui">狩猟</td><td>リオレウス亜種</td><td class="mon">リオレウス亜種</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M4</td><td class="bet">フリー</td><td class="loc">古代樹の森</td><td>森に兇爪あり</td><td class="rui">狩猟</td><td>オドガロン亜種</td><td class="mon">オドガロン亜種</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M4</td><td class="bet">フリー</td><td class="loc">大蟻塚の荒地</td><td>砂地飛び出し走れよ乙女</td><td class="rui">狩猟</td><td>ディアブロス亜種</td><td class="mon">ディアブロス亜種</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M4</td><td class="bet">フリー</td><td class="loc">陸珊瑚の台地</td><td>黒き咎人</td><td class="rui">狩猟</td><td>オドガロン亜種</td><td class="mon">オドガロン亜種</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M4</td><td class="bet">フリー</td><td class="loc">瘴気の谷</td><td>腐蝕のグラディウス</td><td class="rui">狩猟</td><td>ディノバルド亜種</td><td class="mon">ディノバルド亜種</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M4</td><td class="bet">フリー</td><td class="loc">瘴気の谷</td><td>捕獲：ニャイスルーム！鉄明編</td><td class="rui">捕獲</td><td>ディノバルド亜種</td><td class="mon">ディノバルド亜種</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M4</td><td class="bet">フリー</td><td class="loc">瘴気の谷</td><td>ニャイスルーム！鉄暗編</td><td class="rui">狩猟</td><td>オドガロン、オドガロン亜種</td><td class="mon">オドガロン オドガロン亜種</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M4</td><td class="bet">フリー</td><td class="loc">龍結晶の地</td><td>再調査・リオレウス亜種</td><td class="rui">狩猟</td><td>リオレウス亜種</td><td class="mon">リオレウス亜種</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M4</td><td class="bet">フリー</td><td class="loc">龍結晶の地</td><td>捕獲：雷の顎を捕まえろ！</td><td class="rui">捕獲</td><td>アンジャナフ亜種</td><td class="mon">アンジャナフ亜種</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M4</td><td class="bet">フリー</td><td class="loc">大蟻塚の荒地</td><td>黒炯々</td><td class="rui">狩猟</td><td>歴戦ディアブロス亜種</td><td class="mon">ディアブロス亜種</td><td class="zok">飛竜種</td><td class="jou">歴戦 </td></tr>
+                    <tr><td class="rank">★M4</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：蒼火竜マスター編</td><td class="rui">狩猟</td><td>リオレウス亜種</td><td class="mon">リオレウス亜種</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M4</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：黒角竜マスター編</td><td class="rui">狩猟</td><td>ディアブロス亜種</td><td class="mon">ディアブロス亜種</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M4</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：雷顎竜マスター編</td><td class="rui">狩猟</td><td>アンジャナフ亜種</td><td class="mon">アンジャナフ亜種</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M4</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：硫斬竜マスター編</td><td class="rui">狩猟</td><td>ディノバルド亜種</td><td class="mon">ディノバルド亜種</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M4</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：兇爪竜マスター編</td><td class="rui">狩猟</td><td>オドガロン亜種</td><td class="mon">オドガロン亜種</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M4</td><td class="bet">イベント</td><td class="loc">瘴気の谷</td><td>地の底に相応しく</td><td class="rui">狩猟</td><td>オドガロン亜種、ディノバルド亜種</td><td class="mon">オドガロン亜種 ディノバルド亜種</td><td class="zok">牙竜種 獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M4</td><td class="bet">イベント</td><td class="loc">古代樹の森</td><td>深い森の奥に</td><td class="rui">狩猟</td><td>リオレウス亜種、アンジャナフ亜種</td><td class="mon">リオレウス亜種 アンジャナフ亜種</td><td class="zok">飛竜種 獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M4</td><td class="bet">イベント</td><td class="loc">大蟻塚の荒地</td><td>全力疾走、待ったなし</td><td class="rui">狩猟</td><td>ディアブロス亜種、ティガレックス</td><td class="mon">ディアブロス亜種 ティガレックス</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M4</td><td class="bet">イベント</td><td class="loc">龍結晶の地</td><td>鉱山粉砕</td><td class="rui">狩猟</td><td>歴戦ブラキディオス</td><td class="mon">ブラキディオス</td><td class="zok">獣竜種</td><td class="jou">歴戦 </td></tr>
+                    <tr><td class="rank">★M4</td><td class="bet">イベント</td><td class="loc">大蟻塚の荒地</td><td>はらぺこ達は我慢ができない</td><td class="rui">狩猟</td><td>ディノバルド、オドガロン亜種</td><td class="mon">ディノバルド オドガロン亜種</td><td class="zok">獣竜種 牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M4</td><td class="bet">イベント</td><td class="loc">古代樹の森</td><td>暗殺者</td><td class="rui">狩猟</td><td>歴戦ナルガクルガ</td><td class="mon">ナルガクルガ</td><td class="zok">飛竜種</td><td class="jou">歴戦 </td></tr>
+                    <tr><td class="rank">★M4</td><td class="bet">闘技大会</td><td class="loc">闘技場</td><td>闘技大会04</td><td class="rui">闘技</td><td>ディノバルド亜種</td><td class="mon">ディノバルド亜種</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M4</td><td class="bet">闘技大会</td><td class="loc">特殊闘技場</td><td>闘技大会05</td><td class="rui">闘技</td><td>オドガロン、オドガロン亜種</td><td class="mon">オドガロン オドガロン亜種</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M4</td><td class="bet">チャレンジ</td><td class="loc">闘技場</td><td>中級チャレンジクエスト02</td><td class="rui">チャレンジ</td><td>アンジャナフ、アンジャナフ亜種</td><td class="mon">アンジャナフ アンジャナフ亜種</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M5</td><td class="bet">任務</td><td class="loc">渡りの凍て地</td><td>冰の龍</td><td class="rui">討伐</td><td>イヴェルカーナ</td><td class="mon">イヴェルカーナ</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M5</td><td class="bet">任務</td><td class="loc">龍結晶の地</td><td>大災難、大再来</td><td class="rui">狩猟</td><td>紅蓮滾るバゼルギウス</td><td class="mon">紅蓮滾るバゼルギウス</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M5</td><td class="bet">任務</td><td class="loc">古代樹の森</td><td>死を纏うヴァルハザク</td><td class="rui">討伐</td><td>死を纏うヴァルハザク</td><td class="mon">死を纏うヴァルハザク</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M5</td><td class="bet">任務</td><td class="loc">陸珊瑚の台地</td><td>溟にしるべがともるまで</td><td class="rui">討伐</td><td>ネロミェール</td><td class="mon">ネロミェール</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M5</td><td class="bet">フリー</td><td class="loc">渡りの凍て地</td><td>冰冠のフラーズダルム</td><td class="rui">討伐</td><td>イヴェルカーナ</td><td class="mon">イヴェルカーナ</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M5</td><td class="bet">フリー</td><td class="loc">龍結晶の地</td><td>太陽の証</td><td class="rui">討伐</td><td>テオ・テスカトル</td><td class="mon">テオ・テスカトル</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M5</td><td class="bet">フリー</td><td class="loc">大蟻塚の荒地</td><td>砂上にて謁見す</td><td class="rui">討伐</td><td>テオ・テスカトル</td><td class="mon">テオ・テスカトル</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M5</td><td class="bet">フリー</td><td class="loc">古代樹の森</td><td>晴天を呼ぶ龍</td><td class="rui">討伐</td><td>クシャルダオラ</td><td class="mon">クシャルダオラ</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M5</td><td class="bet">フリー</td><td class="loc">龍結晶の地</td><td>風翔龍</td><td class="rui">討伐</td><td>クシャルダオラ</td><td class="mon">クシャルダオラ</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M5</td><td class="bet">フリー</td><td class="loc">瘴気の谷</td><td>生を食みて黄泉に還らず</td><td class="rui">討伐</td><td>死を纏うヴァルハザク</td><td class="mon">死を纏うヴァルハザク</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M5</td><td class="bet">フリー</td><td class="loc">古代樹の森</td><td>誰そ彼は平坂の主</td><td class="rui">討伐</td><td>死を纏うヴァルハザク</td><td class="mon">死を纏うヴァルハザク</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M5</td><td class="bet">フリー</td><td class="loc">陸珊瑚の台地</td><td>稲光</td><td class="rui">討伐</td><td>キリン</td><td class="mon">キリン</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M5</td><td class="bet">フリー</td><td class="loc">陸珊瑚の台地</td><td>さまよえる綿津見の記憶</td><td class="rui">討伐</td><td>ネロミェール</td><td class="mon">ネロミェール</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M5</td><td class="bet">フリー</td><td class="loc">大蟻塚の荒地</td><td>恐暴の宴</td><td class="rui">狩猟</td><td>怒り喰らうイビルジョー</td><td class="mon">怒り喰らうイビルジョー</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M5</td><td class="bet">フリー</td><td class="loc">龍結晶の地</td><td>愚連滾るバゼルギウス</td><td class="rui">狩猟</td><td>紅蓮滾るバゼルギウス</td><td class="mon">紅蓮滾るバゼルギウス</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M5</td><td class="bet">フリー</td><td class="loc">龍結晶の地</td><td>捕獲：ニャイスルーム！銀編</td><td class="rui">捕獲</td><td>紅蓮滾るバゼルギウス</td><td class="mon">紅蓮滾るバゼルギウス</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M5</td><td class="bet">イベント</td><td class="loc">特殊闘技場</td><td>三界主</td><td class="rui">討伐</td><td>キリン、クシャルダオラ、テオ・テスカトル</td><td class="mon">キリン クシャルダオラ テオ・テスカトル</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M5</td><td class="bet">イベント</td><td class="loc">陸珊瑚の台地</td><td>冬の澱み</td><td class="rui">討伐</td><td>イヴェルカーナ、ネロミェール</td><td class="mon">イヴェルカーナ ネロミェール</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M5</td><td class="bet">イベント</td><td class="loc">特殊闘技場</td><td>燻火堆然</td><td class="rui">狩猟</td><td>紅蓮滾るバゼルギウス</td><td class="mon">紅蓮滾るバゼルギウス</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M5</td><td class="bet">イベント</td><td class="loc">龍結晶の地</td><td>渇きの理由</td><td class="rui">狩猟</td><td>怒り喰らうイビルジョー</td><td class="mon">怒り喰らうイビルジョー</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M5</td><td class="bet">イベント</td><td class="loc">兵器置き場</td><td>USJ・無限のきらめきを</td><td class="rui">討伐</td><td>イヴェルカーナ</td><td class="mon">イヴェルカーナ</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M5</td><td class="bet">イベント</td><td class="loc">渡りの凍て地</td><td>USJ・氷刃を薙ぎ、舞え！</td><td class="rui">狩猟</td><td>氷刃佩くベリオロス</td><td class="mon">氷刃佩くベリオロス</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M5</td><td class="bet">イベント</td><td class="loc">瘴気の谷</td><td>RE：戻り来た生物災害</td><td class="rui">討伐</td><td>死を纏うヴァルハザク</td><td class="mon">死を纏うヴァルハザク</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M5</td><td class="bet">イベント</td><td class="loc">古代樹の森</td><td>古龍きたりなば首許寒し</td><td class="rui">討伐</td><td>死を纏うヴァルハザク、イヴェルカーナ</td><td class="mon">死を纏うヴァルハザク イヴェルカーナ</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M5</td><td class="bet">イベント</td><td class="loc">闘技場</td><td>老士の高踏</td><td class="rui">狩猟</td><td>氷刃佩くベリオロス</td><td class="mon">氷刃佩くベリオロス</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M5</td><td class="bet">チャレンジ</td><td class="loc">闘技場</td><td>されど凍らぬ命</td><td class="rui">チャレンジ</td><td>イヴェルカーナ</td><td class="mon">イヴェルカーナ</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M5</td><td class="bet">チャレンジ</td><td class="loc">闘技場</td><td>冰冠の主</td><td class="rui">チャレンジ</td><td>イヴェルカーナ</td><td class="mon">イヴェルカーナ</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M5</td><td class="bet">チャレンジ</td><td class="loc">闘技場</td><td>澱みなき星明り</td><td class="rui">チャレンジ</td><td>ネロミェール</td><td class="mon">ネロミェール</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M5</td><td class="bet">チャレンジ</td><td class="loc">闘技場</td><td>光目指す狩り人</td><td class="rui">チャレンジ</td><td>ネロミェール</td><td class="mon">ネロミェール</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">任務</td><td class="loc">淵源の孤島</td><td>導かれた者の歌</td><td class="rui">特殊</td><td>悉くを殲ぼすネルギガンテ</td><td class="mon">悉くを殲ぼすネルギガンテ</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">任務</td><td class="loc">淵源の孤島</td><td>導きの歌</td><td class="rui">特殊</td><td>アン・イシュワルダ</td><td class="mon">アン・イシュワルダ</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">任務</td><td class="loc">導きの地</td><td>傍若無人がやって来た！</td><td class="rui">狩猟</td><td>イャンガルルガ</td><td class="mon">イャンガルルガ</td><td class="zok">鳥竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">任務</td><td class="loc">古代樹の森</td><td>惰眠と火酒の日々</td><td class="rui">狩猟</td><td>歴戦リオレイア、歴戦パオウルムー亜種</td><td class="mon">リオレイア パオウルムー亜種</td><td class="zok">飛竜種</td><td class="jou">歴戦 </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">任務</td><td class="loc">龍結晶の地</td><td>つらぬけ、武道家魂！！</td><td class="rui">狩猟</td><td>歴戦ブラキディオス、歴戦ディノバルド</td><td class="mon">ブラキディオス ディノバルド</td><td class="zok">獣竜種</td><td class="jou">歴戦 </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">任務</td><td class="loc">導きの地</td><td>愛しの君とこの世のはたて</td><td class="rui">討伐</td><td>悉くを殲ぼすネルギガンテ</td><td class="mon">悉くを殲ぼすネルギガンテ</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">フリー</td><td class="loc">淵源の孤島</td><td>遙かなるローレライ</td><td class="rui">討伐</td><td>アン・イシュワルダ</td><td class="mon">アン・イシュワルダ</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">フリー</td><td class="loc">大蟻塚の荒地</td><td>君との出会いは藍炎妃艶</td><td class="rui">討伐</td><td>ナナ・テスカトリ</td><td class="mon">ナナ・テスカトリ</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">フリー</td><td class="loc">龍結晶の地</td><td>皇妃座すは炎の宮殿</td><td class="rui">討伐</td><td>ナナ・テスカトリ</td><td class="mon">ナナ・テスカトリ</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>冠するものたち</td><td class="rui">狩猟</td><td>ティガレックス、ナルガクルガ、ジンオウガ、ブラキディオス、ディノバルド</td><td class="mon">ティガレックス ナルガクルガ ジンオウガ ブラキディオス ディノバルド</td><td class="zok">飛竜種 牙竜種 獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">フリー</td><td class="loc">龍結晶の地</td><td>陰陽讃歌</td><td class="rui">狩猟</td><td>リオレイア希少種、リオレウス希少種</td><td class="mon">リオレイア希少種 リオレウス希少種</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">フリー</td><td class="loc">陸珊瑚の台地</td><td>神時の台地</td><td class="rui">討伐</td><td>歴戦キリン、歴戦ネロミェール</td><td class="mon">キリン ネロミェール</td><td class="zok">古龍種</td><td class="jou">歴戦 </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">フリー</td><td class="loc">古代樹の森</td><td>別れと嵐は時を選ばず</td><td class="rui">討伐</td><td>歴戦クシャルダオラ、歴戦死を纏うヴァルハザク</td><td class="mon">クシャルダオラ 死を纏うヴァルハザク</td><td class="zok">古龍種</td><td class="jou">歴戦 </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">フリー</td><td class="loc">龍結晶の地</td><td>新大陸の狩人達よ</td><td class="rui">討伐</td><td>歴戦テオ・テスカトル、歴戦ナナ・テスカトリ、歴戦イヴェルカーナ、悉くを殲ぼすネルギガンテ</td><td class="mon">テオ・テスカトル ナナ・テスカトリ イヴェルカーナ 悉くを殲ぼすネルギガンテ</td><td class="zok">古龍種</td><td class="jou">歴戦 </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：雷狼竜マスター編</td><td class="rui">狩猟</td><td>ジンオウガ</td><td class="mon">ジンオウガ</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：黒狼鳥マスター編</td><td class="rui">狩猟</td><td>イャンガルルガ</td><td class="mon">イャンガルルガ</td><td class="zok">鳥竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：黒轟竜マスター編</td><td class="rui">狩猟</td><td>ティガレックス亜種</td><td class="mon">ティガレックス亜種</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：銀火竜マスター編</td><td class="rui">狩猟</td><td>リオレウス希少種</td><td class="mon">リオレウス希少種</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：金火竜マスター編</td><td class="rui">狩猟</td><td>リオレイア希少種</td><td class="mon">リオレイア希少種</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">フリー</td><td class="loc">特殊闘技場</td><td>特殊闘技場：獄狼竜マスター編</td><td class="rui">狩猟</td><td>ジンオウガ亜種</td><td class="mon">ジンオウガ亜種</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">イベント</td><td class="loc">陸珊瑚の台地</td><td>地を蹴り、月に跳ぶ</td><td class="rui">狩猟</td><td>ジンオウガ</td><td class="mon">ジンオウガ</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">イベント</td><td class="loc">古代樹の森</td><td>ワタシは寡黙な良識者</td><td class="rui">狩猟</td><td>イャンガルルガ</td><td class="mon">イャンガルルガ</td><td class="zok">鳥竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">イベント</td><td class="loc">龍結晶の地</td><td>破天大轟</td><td class="rui">狩猟</td><td>ティガレックス亜種</td><td class="mon">ティガレックス亜種</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">イベント</td><td class="loc">龍結晶の地</td><td>銀の逆光</td><td class="rui">狩猟</td><td>リオレウス希少種</td><td class="mon">リオレウス希少種</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">イベント</td><td class="loc">龍結晶の地</td><td>月は無慈悲な金の女王</td><td class="rui">狩猟</td><td>リオレイア希少種</td><td class="mon">リオレイア希少種</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">イベント</td><td class="loc">古代樹の森</td><td>傷跡は理不尽と暴虐の子</td><td class="rui">狩猟</td><td>傷ついたイャンガルルガ</td><td class="mon">傷ついたイャンガルルガ</td><td class="zok">鳥竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">イベント</td><td class="loc">渡りの凍て地</td><td>凍てついた大地へ</td><td class="rui">狩猟</td><td>ジンオウガ</td><td class="mon">ジンオウガ</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">イベント</td><td class="loc">大蟻塚の荒地</td><td>力こそラージャン！</td><td class="rui">狩猟</td><td>ラージャン</td><td class="mon">ラージャン</td><td class="zok">牙獣種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">イベント</td><td class="loc">渡りの凍て地</td><td>生き残り</td><td class="rui">狩猟</td><td>ジンオウガ亜種</td><td class="mon">ジンオウガ亜種</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">イベント</td><td class="loc">闘技場</td><td>嗚呼、マッスルボディ</td><td class="rui">狩猟</td><td>ラージャン x2</td><td class="mon">ラージャン </td><td class="zok">牙獣種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">イベント</td><td class="loc">龍結晶の地</td><td>ファイアブレイク</td><td class="rui">狩猟</td><td>怒り喰らうイビルジョー</td><td class="mon">怒り喰らうイビルジョー</td><td class="zok">獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">イベント</td><td class="loc">龍結晶の地</td><td>八万地獄の狼</td><td class="rui">狩猟</td><td>ジンオウガ亜種</td><td class="mon">ジンオウガ亜種</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">イベント</td><td class="loc">陸珊瑚の台地</td><td>調査（雷狼竜、溟龍）</td><td class="rui">狩猟</td><td>ジンオウガ、ネロミェール</td><td class="mon">ジンオウガ ネロミェール</td><td class="zok">牙竜種 古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">イベント</td><td class="loc">古代樹の森</td><td>大樹のヨーデル</td><td class="rui">狩猟</td><td>アンジャナフ、リオレウス、ナルガクルガ、イャンガルルガ、ラージャン</td><td class="mon">アンジャナフ リオレウス ナルガクルガ イャンガルルガ ラージャン</td><td class="zok">獣竜種 飛竜種 鳥竜種 牙獣種 </td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">イベント</td><td class="loc">大蟻塚の荒地</td><td>泥など温しヘヴィメタル</td><td class="rui">狩猟</td><td>ジュラトドス、パオウルムー亜種、ディノバルド、ディアブロス亜種、怒り喰らうイビルジョー</td><td class="mon">ジュラトドス パオウルムー亜種 ディノバルド ディアブロス亜種 怒り喰らうイビルジョー</td><td class="zok">魚竜種 飛竜種 獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">イベント</td><td class="loc">陸珊瑚の台地</td><td>海の底のクラシック</td><td class="rui">狩猟</td><td>パオウルムー、レイギエナ、プケプケ亜種、オドガロン亜種、ジンオウガ</td><td class="mon">パオウルムー レイギエナ プケプケ亜種 オドガロン亜種 ジンオウガ</td><td class="zok">飛竜種 鳥竜種 牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">イベント</td><td class="loc">古代樹の森</td><td>鳴神上狼、荒事を成す</td><td class="rui">狩猟</td><td>歴戦ジンオウガ</td><td class="mon">ジンオウガ</td><td class="zok">牙竜種</td><td class="jou">歴戦 </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">イベント</td><td class="loc">瘴気の谷</td><td>命ある者のカンツォーネ</td><td class="rui">狩猟</td><td>ドスギルオス、オドガロン、ティガレックス、アンジャナフ亜種、ディノバルド亜種</td><td class="mon">ドスギルオス オドガロン ティガレックス アンジャナフ亜種 ディノバルド亜種</td><td class="zok">牙竜種 飛竜種 獣竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">イベント</td><td class="loc">淵源の孤島</td><td>殲滅の主はまた鐘を鳴らす</td><td class="rui">討伐</td><td>歴戦悉くを殲ぼすネルギガンテ</td><td class="mon">悉くを殲ぼすネルギガンテ</td><td class="zok">古龍種</td><td class="jou">歴戦 </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">イベント</td><td class="loc">龍結晶の地</td><td>じゃじゃ馬共のオルタナティブ</td><td class="rui">狩猟</td><td>バフバロ、ウラガンキン、ブラキディオス、リオレウス亜種、紅蓮滾るバゼルギウス</td><td class="mon">バフバロ ウラガンキン ブラキディオス リオレウス亜種 紅蓮滾るバゼルギウス</td><td class="zok">獣竜種 飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">イベント</td><td class="loc">渡りの凍て地</td><td>眠りの地のバラード</td><td class="rui">狩猟</td><td>ブラントドス、トビカガチ亜種、ベリオロス、凍て刺すレイギエナ、ジンオウガ亜種</td><td class="mon">ブラントドス トビカガチ亜種 ベリオロス 凍て刺すレイギエナ ジンオウガ亜種</td><td class="zok">魚竜種 牙竜種 飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">イベント</td><td class="loc">地脈の黄金郷</td><td>終わりなき黄金時代</td><td class="rui">討伐</td><td>マム・タロト</td><td class="mon">マム・タロト</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">イベント</td><td class="loc">陸珊瑚の台地</td><td>溟鳴り遥か遠く</td><td class="rui">討伐</td><td>歴戦王ネロミェール</td><td class="mon">ネロミェール</td><td class="zok">古龍種</td><td class="jou">歴戦 歴戦王</td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">イベント</td><td class="loc">幽境の谷</td><td>宵の恒星</td><td class="rui">討伐</td><td>アルバトリオン</td><td class="mon">アルバトリオン</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">イベント</td><td class="loc">幽境の谷</td><td>明けの死星</td><td class="rui">討伐</td><td>アルバトリオン</td><td class="mon">アルバトリオン</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">イベント</td><td class="loc">闘技場</td><td>耳塞ぎてミミ隠さず</td><td class="rui">狩猟</td><td>イャンガルルガ</td><td class="mon">イャンガルルガ</td><td class="zok">鳥竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">イベント</td><td class="loc">渡りの凍て地</td><td>さるは金色、かわいいな</td><td class="rui">狩猟</td><td>激昂したラージャン</td><td class="mon">激昂したラージャン</td><td class="zok">牙獣種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">イベント</td><td class="loc">淵源の孤島</td><td>神裸袢消</td><td class="rui">討伐</td><td>アン・イシュワルダ</td><td class="mon">アン・イシュワルダ</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">イベント</td><td class="loc">渡りの凍て地</td><td>終の白騎士</td><td class="rui">狩猟</td><td>歴戦氷刃佩くベリオロス</td><td class="mon">氷刃佩くベリオロス</td><td class="zok">飛竜種</td><td class="jou">歴戦 </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">イベント</td><td class="loc">闘技場</td><td>君はゴールデントロフィー</td><td class="rui">狩猟</td><td>歴戦激昂したラージャン</td><td class="mon">激昂したラージャン</td><td class="zok">牙獣種</td><td class="jou">歴戦 </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">イベント</td><td class="loc">兵器置き場</td><td>嵐の棺</td><td class="rui">討伐</td><td>歴戦クシャルダオラ</td><td class="mon">クシャルダオラ</td><td class="zok">古龍種</td><td class="jou">歴戦 </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">イベント</td><td class="loc">兵器置き場</td><td>滅日</td><td class="rui">討伐</td><td>歴戦テオ・テスカトル</td><td class="mon">テオ・テスカトル</td><td class="zok">古龍種</td><td class="jou">歴戦 </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">イベント</td><td class="loc">兵器置き場</td><td>されど気高き我が魂よ</td><td class="rui">討伐</td><td>歴戦ナナ・テスカトリ</td><td class="mon">ナナ・テスカトリ</td><td class="zok">古龍種</td><td class="jou">歴戦 </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">イベント</td><td class="loc">シュレイド城</td><td>伝説の黒龍</td><td class="rui">討伐</td><td>ミラボレアス</td><td class="mon">ミラボレアス</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">イベント</td><td class="loc">龍結晶の地</td><td>六花が静かに眠るなら</td><td class="rui">討伐</td><td>歴戦王イヴェルカーナ</td><td class="mon">イヴェルカーナ</td><td class="zok">古龍種</td><td class="jou">歴戦 歴戦王</td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">イベント</td><td class="loc">瘴気の谷</td><td>彼岸涙</td><td class="rui">討伐</td><td>歴戦死を纏うヴァルハザク</td><td class="mon">死を纏うヴァルハザク</td><td class="zok">古龍種</td><td class="jou">歴戦 </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">イベント</td><td class="loc">闘技場</td><td>嗚呼嗚呼、マッスルボディ</td><td class="rui">狩猟</td><td>激昂したラージャン x2</td><td class="mon">激昂したラージャン </td><td class="zok">牙獣種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">イベント</td><td class="loc">闘技場</td><td>ジンオウガよさらば</td><td class="rui">狩猟</td><td>ジンオウガ</td><td class="mon">ジンオウガ</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">イベント</td><td class="loc">闘技場</td><td>黒轟竜は傷つかない</td><td class="rui">狩猟</td><td>ティガレックス亜種</td><td class="mon">ティガレックス亜種</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">闘技大会</td><td class="loc">闘技場</td><td>闘技大会06</td><td class="rui">闘技</td><td>ジンオウガ</td><td class="mon">ジンオウガ</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">闘技大会</td><td class="loc">特殊闘技場</td><td>闘技大会07</td><td class="rui">闘技</td><td>ティガレックス、ティガレックス亜種</td><td class="mon">ティガレックス ティガレックス亜種</td><td class="zok">飛竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">チャレンジ</td><td class="loc">特殊闘技場</td><td>上級チャレンジクエスト01</td><td class="rui">チャレンジ</td><td>イャンガルルガ</td><td class="mon">イャンガルルガ</td><td class="zok">鳥竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">チャレンジ</td><td class="loc">闘技場</td><td>上級チャレンジクエスト02</td><td class="rui">チャレンジ</td><td>歴戦怒り喰らうイビルジョー</td><td class="mon">怒り喰らうイビルジョー</td><td class="zok">獣竜種</td><td class="jou">歴戦 </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">特別・偵察</td><td class="loc">渡りの凍て地</td><td>銀色の矜持</td><td class="rui">討伐</td><td>キリン</td><td class="mon">キリン</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">特別・偵察</td><td class="loc">導きの地</td><td>出でよ破壊の権化</td><td class="rui">特殊</td><td>ラージャン</td><td class="mon">ラージャン</td><td class="zok">牙獣種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">特別・偵察</td><td class="loc">導きの地</td><td>失われた幽世線</td><td class="rui">特殊</td><td>ジンオウガ亜種</td><td class="mon">ジンオウガ亜種</td><td class="zok">牙竜種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">特別・偵察</td><td class="loc">幽境の谷</td><td>戻らずの底</td><td class="rui">特殊</td><td>ムフェト・ジーヴァ</td><td class="mon">ムフェト・ジーヴァ</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">特別・偵察</td><td class="loc">幽境の谷</td><td>赤き龍</td><td class="rui">特殊</td><td>ムフェト・ジーヴァ</td><td class="mon">ムフェト・ジーヴァ</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">特別・偵察</td><td class="loc">幽境の谷</td><td>宵闇の煌黒星</td><td class="rui">討伐</td><td>アルバトリオン</td><td class="mon">アルバトリオン</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">特別・偵察</td><td class="loc">幽境の谷</td><td>暁の凱還</td><td class="rui">特殊</td><td>アルバトリオン</td><td class="mon">アルバトリオン</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                    <tr><td class="rank">★M6</td><td class="bet">特別・偵察</td><td class="loc">シュレイド城</td><td>黒龍ミラボレアス</td><td class="rui">特殊</td><td>ミラボレアス</td><td class="mon">ミラボレアス</td><td class="zok">古龍種</td><td class="jou"> </td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        </body>
 </html>
